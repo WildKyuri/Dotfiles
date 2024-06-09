@@ -27,9 +27,17 @@ return require("packer").startup(function(use)
             require("configs.sonokai")
         end
     })
+    
+    -- Discord Presence
+    use ({
+        "andweeb/presence.nvim",
+        config = function()
+            require("configs.discord")
+        end
+    })
 
     -- Dashboard
-     use ({
+    use ({
         'nvimdev/dashboard-nvim',
         event = 'VimEnter',
         config = function()
