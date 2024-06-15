@@ -16,6 +16,6 @@ masonlsp.setup({
         "intelephense",
 	"pyright",
         "clangd",
-        "omnisharp",
+        "csharp_ls",
     },
 })

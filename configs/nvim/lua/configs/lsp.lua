@@ -70,11 +70,9 @@ nvim_lsp.clangd.setup({
 })
 
 -- C#
-nvim_lsp.omnisharp.setup({
+nvim_lsp.csharp_ls.setup({
     on_attach = on_attach,
     capabilities = capabilities,
-    cmd = { "omnisharp", "--languageserver", "--hostPID", tostring(vim.fn.getpid()) },
-     --Additional settings can be added here
 })
 
 -- PHP
