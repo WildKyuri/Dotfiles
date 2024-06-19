@@ -30,12 +30,14 @@ winget install JanDeDobbeleer.OhMyPosh -s winget
 
 ## :diamonds: Requirements and tools
 
+**_Install on Windows_**
+
 - **Neovim**
   - NodeJS & npm
   - Nerd Fonts (Hack Nerd Font)
   - Packer
     - https://github.com/williamboman/mason-lspconfig.nvim
-  - C compiler
+  - C compiler (environment variables)
     - https://github.com/niXman/mingw-builds-binaries/releases
 
 <br>
