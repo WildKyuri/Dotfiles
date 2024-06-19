@@ -77,10 +77,10 @@ winget install JanDeDobbeleer.OhMyPosh -s winget
 Clone the repository.
 
 ```bash
-https://github.com/WildKyuri/Dotfiles-Nvim.git
+https://github.com/WildKyuri/Dotfiles
 ```
 
-Moves de files inside `Dotfiles-Nvim` to
+Moves de files inside `Dotfiles/configs/nvim` to
 
 - Windows: `$env:LOCALAPPDATA\nvim\`
 
