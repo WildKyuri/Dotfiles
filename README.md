@@ -36,7 +36,7 @@ winget install JanDeDobbeleer.OhMyPosh -s winget
   - NodeJS & npm
   - Nerd Fonts (Hack Nerd Font)
   - Packer
-    - https://github.com/williamboman/mason-lspconfig.nvim
+    - https://github.com/wbthomason/packer.nvim
   - C compiler (environment variables)
     - https://github.com/niXman/mingw-builds-binaries/releases
 
@@ -56,7 +56,9 @@ winget install JanDeDobbeleer.OhMyPosh -s winget
     `pip install pylint `
 
   - prettier
+
     `npm install -g prettier`
+  
   - eslint_d
 
     `npm install -g eslint_d`
