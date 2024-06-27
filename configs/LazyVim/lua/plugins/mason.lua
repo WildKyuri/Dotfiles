@@ -30,15 +30,7 @@ return {
     config = function()
       local lspconfig = require("lspconfig")
       local protocol = require("vim.lsp.protocol")
-      local on_attach = function(client, bufnr)
-      -- Activar formateo al guardar si el servidor lo soporta
-      if client.server_capabilities.documentFormattingProvider then
-        vim.api.nvim_command("augroup LspFormat")
-        vim.api.nvim_command("autocmd!")
-        vim.api.nvim_command("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()")
-        vim.api.nvim_command("augroup END")
-        end
-      end
+
       -- TypeScript
       lspconfig.tsserver.setup({
         on_attach = on_attach,
@@ -104,4 +96,3 @@ return {
     "onsails/lspkind-nvim",
   },
 }
-
