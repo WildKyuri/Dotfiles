@@ -32,13 +32,20 @@ winget install JanDeDobbeleer.OhMyPosh -s winget
 
 **_Install on Windows_**
 
-- **Neovim**
-  - NodeJS & npm
-  - Nerd Fonts (Hack Nerd Font)
-  - Packer
-    - https://github.com/wbthomason/packer.nvim
-  - C compiler (environment variables)
-    - https://github.com/niXman/mingw-builds-binaries/releases
+### For Neovim
+
+- NodeJS & npm
+- Nerd Fonts (Hack Nerd Font)
+- Packer
+  - https://github.com/wbthomason/packer.nvim
+- C compiler (environment variables)
+  - https://github.com/niXman/mingw-builds-binaries/releases
+
+### LazyVim
+
+- C compiler (environment variables)
+
+  - https://github.com/niXman/mingw-builds-binaries/releases
 
 <br>
 
@@ -58,7 +65,7 @@ winget install JanDeDobbeleer.OhMyPosh -s winget
   - prettier
 
     `npm install -g prettier`
-  
+
   - eslint_d
 
     `npm install -g eslint_d`
@@ -84,6 +91,8 @@ Clone the repository.
 https://github.com/WildKyuri/Dotfiles
 ```
 
+### Neovim
+
 Moves de files inside `Dotfiles/configs/nvim` to
 
 - Windows: `$env:LOCALAPPDATA\nvim\`
@@ -93,6 +102,14 @@ In Neovim Editor, run the command:
 ```bash
 :PackerSync
 ```
+
+### LazyVim
+
+Moves de files inside `Dotfiles/configs/nvim` to
+
+- Windows: `$env:LOCALAPPDATA\nvim\`
+
+And just run nvim in terminal
 
 ## Customization
 
