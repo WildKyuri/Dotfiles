@@ -86,4 +86,16 @@ return {
       vim.g.db_ui_use_nerd_fonts = 1
     end,
   },
+  -- LiveServer
+  {
+    "barrett-ruth/live-server.nvim",
+    cmd = { "LiveServerStart", "LiveServerStop" },
+    config = function()
+      require("live-server").setup({
+        args = {
+          "--browser=firefox",
+        },
+      })
+    end,
+  },
 }

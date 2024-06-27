@@ -77,6 +77,10 @@ keymap.set("n", "<Leader>mc", ":MarkdownPreviewClose<CR>", opts)
 -- Regresar al dashboard
 keymap.set("n", "<Leader>gd", ":Dashboard<CR>", opts)
 
+-- Live Server
+keymap.set("n", "<Leader>ls", ":LiveServerStart<CR>", opts)
+keymap.set("n", "<Leader>le", ":LiveServerStop<CR>", opts)
+
 -- Databases
 keymap.set("n", "<Leader>db", "<cmd>tabnew<cr><bar><bar><cmd>DBUI<cr>")
 
