@@ -36,9 +36,8 @@ keymap.set("n", "<Leader>w", ":update<Return>", opts)
 keymap.set("n", "<Leader>q", ":quit<Return>", opts)
 keymap.set("n", "<Leader>Q", ":qa<Return>", opts)
 
--- File explorer with NvimTree
-keymap.set("n", "<Leader>f", ":NvimTreeFindFile<Return>", opts)
-keymap.set("n", "<Leader>t", ":NvimTreeToggle<Return>", opts)
+-- Neo tree
+keymap.set("n", "<Leader>o", ":Neotree focus<CR>", opts)
 
 -- Terminal
 keymap.set("n", "<Leader>th", ":ToggleTerm direction=horizontal<CR>", opts)
