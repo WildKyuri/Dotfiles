@@ -98,4 +98,10 @@ return {
       })
     end,
   },
+  -- Terminal
+  {
+    "akinsho/toggleterm.nvim",
+    version = "*",
+    config = true,
+  },
 }

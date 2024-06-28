@@ -40,6 +40,16 @@ keymap.set("n", "<Leader>Q", ":qa<Return>", opts)
 keymap.set("n", "<Leader>f", ":NvimTreeFindFile<Return>", opts)
 keymap.set("n", "<Leader>t", ":NvimTreeToggle<Return>", opts)
 
+-- Terminal
+keymap.set("n", "<Leader>th", ":ToggleTerm direction=horizontal<CR>", opts)
+
+function _G.set_terminal_keymaps()
+  local opts = { noremap = true }
+  vim.api.nvim_buf_set_keymap(0, "t", "<Esc>", [[<C-\><C-n>]], opts)
+end
+
+vim.cmd("autocmd! TermOpen term://* lua set_terminal_keymaps()")
+
 -- Tabs
 keymap.set("n", "te", ":tabedit")
 keymap.set("n", "<tab>", ":tabnext<Return>", opts)
