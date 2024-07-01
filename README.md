@@ -1,4 +1,10 @@
-![Workspace](./doc/img/3.png)
+- **LazyVim**
+  ![Workspace](./doc/img/LazyVim1.png)
+
+  ![Workspace](./doc/img/LazyVim2.png)
+
+- **Nvim (packer)**
+  ![Workspace](./doc/img/3.png)
 
 # :city_sunset: Dotfiles
 
