@@ -39,6 +39,11 @@ keymap.set("n", "<Leader>Q", ":qa<Return>", opts)
 -- Neo tree
 keymap.set("n", "<Leader>o", ":Neotree focus<CR>", opts)
 
+-- Auto Session Lens
+keymap.set("n", "<Leader>las", require("auto-session.session-lens").search_session, {
+  noremap = true,
+})
+
 -- Terminal
 keymap.set("n", "<Leader>th", ":ToggleTerm direction=horizontal<CR>", opts)
 
