@@ -31,6 +31,19 @@ return {
       local lspconfig = require("lspconfig")
       local protocol = require("vim.lsp.protocol")
 
+      -- Función on_attach para configurar keybindings específicos de LSP
+      local on_attach = function(client, bufnr)
+        local function buf_set_keymap(...)
+          vim.api.nvim_buf_set_keymap(bufnr, ...)
+        end
+        local opts = { noremap = true, silent = true }
+
+        -- Keybindings de LSP
+        buf_set_keymap("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
+
+        -- Puedes agregar más keybindings aquí según tus necesidades
+      end
+
       -- TypeScript
       lspconfig.tsserver.setup({
         on_attach = on_attach,
