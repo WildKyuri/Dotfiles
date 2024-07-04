@@ -21,7 +21,7 @@ return {
           "pyright",
           "clangd",
           "csharp_ls",
-          "emmet_ls",
+          "emmet_language_server",
           "lua_ls",
         },
       })
@@ -58,7 +58,7 @@ return {
         "clangd",
         "csharp_ls",
         "intelephense",
-        "emmet_ls",
+        "emmet_language_server",
         "lua_ls",
       }
 
