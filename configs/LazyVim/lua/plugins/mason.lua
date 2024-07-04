@@ -29,9 +29,8 @@ return {
     after = "mason-lspconfig.nvim",
     config = function()
       local lspconfig = require("lspconfig")
-      local protocol = require("vim.lsp.protocol")
+      local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
-      -- Función on_attach para configurar keybindings específicos de LSP
       local on_attach = function(client, bufnr)
         local function buf_set_keymap(...)
           vim.api.nvim_buf_set_keymap(bufnr, ...)
@@ -44,68 +43,34 @@ return {
         -- Puedes agregar más keybindings aquí según tus necesidades
       end
 
-      -- TypeScript
-      lspconfig.tsserver.setup({
-        on_attach = on_attach,
-        capabilities = require("cmp_nvim_lsp").default_capabilities(),
-      })
+      local capabilities = cmp_nvim_lsp.default_capabilities()
 
-      -- CSS
-      lspconfig.cssls.setup({
-        on_attach = on_attach,
-        capabilities = require("cmp_nvim_lsp").default_capabilities(),
-      })
+      -- Configuración de servidores LSP
+      local servers = {
+        "tsserver",
+        "cssls",
+        "tailwindcss",
+        "html",
+        "jsonls",
+        "eslint",
+        "pyright",
+        "clangd",
+        "csharp_ls",
+        "intelephense",
+      }
 
-      -- Tailwind
-      lspconfig.tailwindcss.setup({
-        on_attach = on_attach,
-        capabilities = require("cmp_nvim_lsp").default_capabilities(),
-      })
-
-      -- HTML
-      lspconfig.html.setup({
-        on_attach = on_attach,
-        capabilities = require("cmp_nvim_lsp").default_capabilities(),
-      })
-
-      -- JSON
-      lspconfig.jsonls.setup({
-        on_attach = on_attach,
-        capabilities = require("cmp_nvim_lsp").default_capabilities(),
-      })
-
-      -- Eslint
-      lspconfig.eslint.setup({
-        on_attach = on_attach,
-        capabilities = require("cmp_nvim_lsp").default_capabilities(),
-      })
-
-      -- Python
-      lspconfig.pyright.setup({
-        on_attach = on_attach,
-        capabilities = require("cmp_nvim_lsp").default_capabilities(),
-      })
-
-      -- C/C++
-      lspconfig.clangd.setup({
-        on_attach = on_attach,
-        capabilities = require("cmp_nvim_lsp").default_capabilities(),
-      })
-
-      -- C#
-      lspconfig.csharp_ls.setup({
-        on_attach = on_attach,
-        capabilities = require("cmp_nvim_lsp").default_capabilities(),
-      })
-
-      -- PHP
-      lspconfig.intelephense.setup({
-        on_attach = on_attach,
-        capabilities = require("cmp_nvim_lsp").default_capabilities(),
-      })
+      for _, lsp in ipairs(servers) do
+        lspconfig[lsp].setup({
+          on_attach = on_attach,
+          capabilities = capabilities,
+        })
+      end
     end,
   },
   {
     "onsails/lspkind-nvim",
+    config = function()
+      require("lspkind").init()
+    end,
   },
 }
