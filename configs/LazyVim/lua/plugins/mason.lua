@@ -8,21 +8,24 @@ return {
   {
     "williamboman/mason-lspconfig.nvim",
     after = "mason.nvim",
-    opts = {
-      automatic_installation = true,
-      ensure_installed = {
-        "tailwindcss",
-        "cssls",
-        "html",
-        "eslint",
-        "jsonls",
-        "tsserver",
-        "intelephense",
-        "pyright",
-        "clangd",
-        "csharp_ls",
-      },
-    },
+    config = function()
+      require("mason-lspconfig").setup({
+        ensure_installed = {
+          "tailwindcss",
+          "cssls",
+          "html",
+          "eslint",
+          "jsonls",
+          "tsserver",
+          "intelephense",
+          "pyright",
+          "clangd",
+          "csharp_ls",
+          "emmet_ls",
+          "lua_ls",
+        },
+      })
+    end
   },
   {
     "neovim/nvim-lspconfig",
@@ -39,8 +42,6 @@ return {
 
         -- Keybindings de LSP
         buf_set_keymap("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
-
-        -- Puedes agregar más keybindings aquí según tus necesidades
       end
 
       local capabilities = cmp_nvim_lsp.default_capabilities()
@@ -57,6 +58,8 @@ return {
         "clangd",
         "csharp_ls",
         "intelephense",
+        "emmet_ls",
+        "lua_ls",
       }
 
       for _, lsp in ipairs(servers) do
@@ -72,5 +75,8 @@ return {
     config = function()
       require("lspkind").init()
     end,
+  },
+  {
+    "olrtg/nvim-emmet",
   },
 }
