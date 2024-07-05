@@ -1,7 +1,6 @@
 return {
-  {
-    "famiu/bufdelete.nvim",
-  },
+  { "famiu/bufdelete.nvim" }, -- bufdelete 
+  { "mg979/vim-visual-multi" }, -- Multiline Editing
   --            Markdown preview
   {
     "iamcco/markdown-preview.nvim",
@@ -129,3 +128,4 @@ return {
     end,
   },
 }
+
