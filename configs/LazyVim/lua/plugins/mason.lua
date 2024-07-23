@@ -11,6 +11,7 @@ return {
     config = function()
       require("mason-lspconfig").setup({
         ensure_installed = {
+          "lua_ls",
           "tailwindcss",
           "cssls",
           "html",
@@ -22,7 +23,7 @@ return {
           "clangd",
           "csharp_ls",
           "emmet_language_server",
-          "lua_ls",
+          "texlab",
         },
       })
     end
@@ -48,18 +49,19 @@ return {
 
       -- Configuración de servidores LSP
       local servers = {
-        "tsserver",
-        "cssls",
+        "lua_ls",
         "tailwindcss",
+        "cssls",
         "html",
-        "jsonls",
         "eslint",
+        "jsonls",
+        "tsserver",
+        "intelephense",
         "pyright",
         "clangd",
         "csharp_ls",
-        "intelephense",
         "emmet_language_server",
-        "lua_ls",
+        "texlab",
       }
 
       for _, lsp in ipairs(servers) do
@@ -68,6 +70,24 @@ return {
           capabilities = capabilities,
         })
       end
+
+      lspconfig.intelephense.setup({
+        settings = {
+          intelephense = {
+            format = { braces = "k&r" },
+            environment = { phpVersion = "8.3.9" },
+          },
+        },
+        root_dir = lspconfig.util.root_pattern(".git", "package.json"),
+        handlers = {
+          ["client/registerCapability"] = function(_, _, _, _)
+            return { result = nil, error = nil }
+          end,
+          ["workspace/configuration"] = function(_, _, _, _)
+            return { result = nil, error = nil }
+          end,
+        },
+      })
     end,
   },
   {
