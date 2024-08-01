@@ -12,25 +12,32 @@ config.hide_tab_bar_if_only_one_tab = true
 
 -- my coolnight colorscheme:
 config.colors = {
-	foreground = "#CBE0F0",
-	-- background = "#14001E",
-	cursor_bg = "#DC97FF",
-	cursor_border = "#DC97FF",
-	cursor_fg = "#011423",
-	selection_bg = "#033259",
-	selection_fg = "#CBE0F0",
-	ansi = { "#214969", "#E52E2E", "#44FFB1", "#FFE073", "#0FC5ED", "#a277ff", "#24EAF7", "#24EAF7" },
-	brights = { "#214969", "#E52E2E", "#44FFB1", "#FFE073", "#A277FF", "#a277ff", "#24EAF7", "#24EAF7" },
+  -- foreground = "#dcd7ba",
+  background = "#1f1f28",
+
+  cursor_bg = "#c8c093",
+  cursor_fg = "#c8c093",
+  cursor_border = "#c8c093",
+
+  selection_fg = "#c8c093",
+  selection_bg = "#2d4f67",
+
+  scrollbar_thumb = "#16161d",
+  split = "#16161d",
+
+  ansi = { "#090618", "#c34043", "#76946a", "#DEBAD4", "#7e9cd8", "#957fb8", "#6a9589", "#DEBAD4" },
+  brights = { "#727169", "#e82424", "#98bb6c", "#e6c384", "#7fb4ca", "#938aa9", "#7aa89f", "#dcd7ba" },
+  indexed = { [16] = "#ffa066", [17] = "#ff5d62" },
 }
 
 -- activate ONLY if windows --
 -- config.default_domain = 'WSL:Ubuntu'
-config.default_prog = {"powershell.exe", "-NoLogo"}
+config.default_prog = { "powershell.exe", "-NoLogo" }
 -- config.front_end = "WebGpu"
 config.max_fps = 120
 for _, gpu in ipairs(wezterm.gui.enumerate_gpus()) do
   if gpu.backend == "Vulkan" then
-      config.webgpu_preferred_adapter = gpu
+    config.webgpu_preferred_adapter = gpu
     break
   end
 end
@@ -79,22 +86,22 @@ config.keys = {
   {
     key = "LeftArrow",
     mods = "ALT|SHIFT",
-    action = wezterm.action.AdjustPaneSize {"Left", 1},
+    action = wezterm.action.AdjustPaneSize { "Left", 1 },
   },
   {
     key = "RightArrow",
     mods = "ALT|SHIFT",
-    action = wezterm.action.AdjustPaneSize {"Right", 1},
+    action = wezterm.action.AdjustPaneSize { "Right", 1 },
   },
   {
     key = "UpArrow",
     mods = "ALT|SHIFT",
-    action = wezterm.action.AdjustPaneSize {"Up", 1},
+    action = wezterm.action.AdjustPaneSize { "Up", 1 },
   },
   {
     key = "DownArrow",
-  mods = "ALT|SHIFT",
-    action = wezterm.action.AdjustPaneSize {"Down", 1},
+    mods = "ALT|SHIFT",
+    action = wezterm.action.AdjustPaneSize { "Down", 1 },
   },
   -- Open a new window
   {
