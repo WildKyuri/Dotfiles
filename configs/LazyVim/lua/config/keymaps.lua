@@ -87,7 +87,6 @@ keymap.set("n", "-", ":Oil<Return>", opts)
 
 -- Atajo para abrir o actualizar la vista previa de Markdown
 keymap.set("n", "<Leader>m", ":MarkdownPreviewToggle<CR>", opts)
-keymap.set("n", "<Leader>mc", ":MarkdownPreviewClose<CR>", opts)
 
 -- Regresar al dashboard
 keymap.set("n", "<Leader>gd", ":Dashboard<CR>", opts)
