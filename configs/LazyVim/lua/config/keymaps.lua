@@ -56,10 +56,13 @@ vim.cmd("autocmd! TermOpen term://* lua set_terminal_keymaps()")
 
 -- Tabs
 keymap.set("n", "te", ":tabedit")
-keymap.set("n", "<Leader>dc", ":tabclose<CR>", opts)
 keymap.set("n", "<tab>", ":tabnext<Return>", opts)
 keymap.set("n", "<s-tab>", ":tabprev<Return>", opts)
 keymap.set("n", "tw", ":tabclose<Return>", opts)
+
+-- Cambiar entre buffers
+keymap.set("n", "nb", ":bnext<CR>", opts)
+keymap.set("n", "nB", ":bprev<CR>", opts)
 
 -- Split window
 keymap.set("n", "ss", ":split<Return>", opts)
@@ -87,7 +90,6 @@ keymap.set("n", "-", ":Oil<Return>", opts)
 
 -- Atajo para abrir o actualizar la vista previa de Markdown
 keymap.set("n", "<Leader>m", ":MarkdownPreviewToggle<CR>", opts)
-keymap.set("n", "<Leader>mc", ":MarkdownPreviewClose<CR>", opts)
 
 -- Regresar al dashboard
 keymap.set("n", "<Leader>gd", ":Dashboard<CR>", opts)
@@ -98,6 +100,11 @@ keymap.set("n", "<Leader>le", ":LiveServerStop<CR>", opts)
 
 -- Databases
 keymap.set("n", "<Leader>db", "<cmd>tabnew<cr><bar><bar><cmd>DBUI<cr>")
+
+-- Aerial
+keymap.set("n", "<leader>a", "<cmd>AerialToggle!<CR>", opts)
+keymap.set("n", "{", "<cmd>AerialPrev<CR>", opts)
+keymap.set("n", "}", "<cmd>AerialNext<CR>", opts)
 
 -- Saltar en los snippets
 keymap.set({ "i", "s" }, "<c-d>", function()
@@ -113,19 +120,3 @@ keymap.set({ "i", "s" }, "<c-a>", function()
     ls.jump(-1)
   end
 end, { silent = true })
-
--- Delete Buffers except the actual one
-local status_bufdelete, bufdelete = pcall(require, "bufdelete")
-if status_bufdelete then
-  keymap.set("n", "<Leader>bo", function()
-    local current_buf = vim.api.nvim_get_current_buf()
-    local buffers = vim.api.nvim_list_bufs()
-    for _, buf in ipairs(buffers) do
-      if vim.api.nvim_buf_is_loaded(buf) and buf ~= current_buf then
-        bufdelete.bufdelete(buf, true)
-      end
-    end
-  end, opts)
-else
-  print("bufdelete.nvim not found")
-end
