@@ -25,7 +25,7 @@ config.colors = {
   scrollbar_thumb = "#16161d",
   split = "#16161d",
 
-  ansi = { "#090618", "#c34043", "#76946a", "#DEBAD4", "#7e9cd8", "#957fb8", "#6a9589", "#DEBAD4" },
+  ansi = { "#090618", "#c34043", "#C8A6BE", "#00ffcd", "#090618", "#ff88df", "#C8A6BE", "#DEBAD4" },  
   brights = { "#727169", "#e82424", "#98bb6c", "#e6c384", "#7fb4ca", "#938aa9", "#7aa89f", "#dcd7ba" },
   indexed = { [16] = "#ffa066", [17] = "#ff5d62" },
 }

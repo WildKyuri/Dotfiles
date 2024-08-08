@@ -48,7 +48,6 @@ map("n", "<leader>o", "<CMD>Neotree focus<CR>")
 
 -- Markdown Preview
 map("n", "<leader>m", "<CMD>MarkdownPreview<CR>")
-map("n", "<leader>mn", "<CMD>MarkdownPreviewStop<CR>")
 
 -- Terminal
 map("n", "<leader>th", "<CMD>ToggleTerm size=10 direction=horizontal<CR>")
