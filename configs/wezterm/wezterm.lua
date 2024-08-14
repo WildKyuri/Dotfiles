@@ -121,6 +121,12 @@ config.keys = {
     mods = "CTRL|SHIFT",
     action = wezterm.action.ActivateTabRelative(1),
   },
+  -- Paste ctrl + v
+  {
+    key = "v",
+    mods = "CTRL",
+    action = wezterm.action.PasteFrom("Clipboard")
+  },
 }
 
 return config
