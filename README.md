@@ -10,9 +10,6 @@ It will depend on where are u working (Windows/Linux)
 - Nerd Fonts (Hack Nerd Font)
 - C compiler (environment variables)
   - https://github.com/niXman/mingw-builds-binaries/releases
-
-This ones will depend on where are you working (Windows/Linux)
-
 - fd
 - fzf
 - ripgrep
