@@ -1,29 +1,22 @@
-
 return {
   {
-    "nvim-telescope/telescope.nvim",
-    tag = "0.1.8",
-    requires = { "nvim-lua/plenary.nvim" },
+    "ibhagwan/fzf-lua",
+    -- optional for icon support
+    dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
-      require("telescope").setup({
-        key = {
-          ";f",
-          function()
-            local builtin = require("telescope.builtin")
-            builtin.find_files({
-              no_ignore = false,
-              hidden = true,
-            })
-          end,
-        },
-      })
+      -- calling `setup` is optional for customization
+      require("fzf-lua").setup({})
     end,
   },
   {
     "stevearc/oil.nvim",
-    opts = {},
     -- Optional dependencies
     dependencies = { "nvim-tree/nvim-web-devicons" },
+    opts = {
+      view_options = {
+        show_hidden = true, -- Mostrar archivos ocultos
+      },
+    },
   },
   {
     "nvim-treesitter/nvim-treesitter",

@@ -31,5 +31,13 @@ vim.opt.splitright = true
 vim.opt.splitkeep = "cursor"
 vim.opt.mouse = ""
 
+-- Configuración del cursor según el modo
+vim.opt.guicursor = {
+  "n-v-c:block", -- Bloque en modo normal, visual y comando
+  "i-ci-ve:ver25", -- Barra vertical en modo insertar
+  "r-cr:hor20", -- Línea horizontal en modo reemplazo
+  "o:hor50", -- Línea horizontal más gruesa en modo operador-pending
+}
+
 -- Add asterisks in block comments
 vim.opt.formatoptions:append({ "r" })
