@@ -48,12 +48,6 @@ return {
               key = "space th",
             },
             {
-              icon = "⛬     ",
-              desc = "File Directory                       ",
-              action = "Oil file_directory",
-              key = "-",
-            },
-            {
               icon = "☯     ",
               desc = "Git Status                           ",
               action = "Telescope git status",
