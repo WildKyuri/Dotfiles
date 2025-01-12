@@ -1,8 +1,7 @@
 general:
   # Commands to run when the WM has started (e.g. to run a script or launch
   # another application). Here we are running a batch script to start Zebar.
-  startup_commands: ["shell-exec zebar"]
-  # Whether to automatically focus windows underneath the cursor.
+  startup_commands: ["shell-exec zebar"] # Whether to automatically focus windows underneath the cursor.
 
   focus_follows_cursor: false
   # Whether to switch back and forth between the previously focused
@@ -124,13 +123,13 @@ keybindings:
   - commands: ["move --direction left"]
     # Move focused window in a given direction.
 
-    bindings: ["alt+shift+left"]
+    bindings: ["alt+ctrl+left"]
   - commands: ["move --direction right"]
-    bindings: ["alt+shift+right"]
+    bindings: ["alt+ctrl+right"]
   - commands: ["move --direction up"]
-    bindings: ["alt+shift+up"]
+    bindings: ["alt+ctrl+up"]
   - commands: ["move --direction down"]
-    bindings: ["alt+shift+down"]
+    bindings: ["alt+ctrl+down"]
   - commands: ["resize --width -2%"]
     # Resize focused window by a percentage or pixel amount.
 

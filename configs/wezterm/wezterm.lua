@@ -25,6 +25,31 @@ config.default_cursor_style = "SteadyBar"
 config.initial_cols = 160
 config.initial_rows = 40
 
+-- Función para alternar la opacidad
+local function toggle_opacity(window, pane)
+  if config.window_background_opacity == 1.0 then
+    config.window_background_opacity = 0.80 -- Regresar a opacidad inicial
+  else
+    config.window_background_opacity = 1.0 -- Hacer sólido el fondo
+  end
+  window:set_config_overrides({ window_background_opacity = config.window_background_opacity })
+end
+-- Paleta de Colores
+-- "#8635e0",
+-- "#a656ff",
+-- "#c088ff",
+-- "#ff88df",
+-- "#f9a4e2",
+-- "#F4CDE9",
+-- "#DEBAD4",
+-- "#C8A6BE",
+-- "#B293A8",
+-- "#9C7F92",
+-- "#866C7D",
+-- "#705867",
+-- "#5A4551",
+-- "#44313B",
+
 -- my coolnight colorscheme:
 config.colors = {
   -- foreground = "#dcd7ba",
@@ -45,12 +70,21 @@ config.colors = {
 }
 
 -- Añadir opciones de lanzamiento rápido para WSL
-
+config.launch_menu = {
+  {
+    label = "WSL - Parrot OS",
+    args = { "wsl.exe", "--distribution", "Parrot" },
+  },
+  {
+    label = "WSL - Ubuntu",
+    args = { "wsl.exe", "--distribution", "Ubuntu" },
+  },
+}
 -- activate ONLY if windows --
 -- config.default_domain = "WSL:Ubuntu"
 config.default_domain = "WSL:ParrotOS"
 
-config.max_fps = 120
+config.max_fps = 165
 for _, gpu in ipairs(wezterm.gui.enumerate_gpus()) do
   if gpu.backend == "Vulkan" then
     config.webgpu_preferred_adapter = gpu
@@ -148,6 +182,12 @@ config.keys = {
     key = "L",
     mods = "CTRL|SHIFT",
     action = "ShowLauncher",
+  },
+  -- Alternar opacidad con CTRL+ALT+E
+  {
+    key = "e",
+    mods = "CTRL|ALT",
+    action = wezterm.action_callback(toggle_opacity),
   },
 }
 
