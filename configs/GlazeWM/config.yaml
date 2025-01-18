@@ -123,13 +123,13 @@ keybindings:
   - commands: ["move --direction left"]
     # Move focused window in a given direction.
 
-    bindings: ["alt+ctrl+left"]
+    bindings: ["alt+shift+left"]
   - commands: ["move --direction right"]
-    bindings: ["alt+ctrl+right"]
+    bindings: ["alt+shift+right"]
   - commands: ["move --direction up"]
-    bindings: ["alt+ctrl+up"]
+    bindings: ["alt+shift+up"]
   - commands: ["move --direction down"]
-    bindings: ["alt+ctrl+down"]
+    bindings: ["alt+shift+down"]
   - commands: ["resize --width -2%"]
     # Resize focused window by a percentage or pixel amount.
 
