@@ -113,26 +113,26 @@ binding_modes:
 keybindings:
   # Shift focus in a given direction.
   - commands: ["focus --direction left"]
-    bindings: ["alt+h", "alt+left"]
+    bindings: ["alt+h"]
   - commands: ["focus --direction right"]
-    bindings: ["alt+l", "alt+right"]
+    bindings: ["alt+l"]
   - commands: ["focus --direction up"]
-    bindings: ["alt+k", "alt+up"]
+    bindings: ["alt+k"]
   - commands: ["focus --direction down"]
-    bindings: ["alt+j", "alt+down"]
+    bindings: ["alt+j"]
   - commands: ["move --direction left"]
+
     # Move focused window in a given direction.
-
-    bindings: ["alt+shift+left"]
+    bindings: ["alt+left"]
   - commands: ["move --direction right"]
-    bindings: ["alt+shift+right"]
+    bindings: ["alt+right"]
   - commands: ["move --direction up"]
-    bindings: ["alt+shift+up"]
+    bindings: ["alt+up"]
   - commands: ["move --direction down"]
-    bindings: ["alt+shift+down"]
-  - commands: ["resize --width -2%"]
-    # Resize focused window by a percentage or pixel amount.
+    bindings: ["alt+down"]
 
+    # Resize focused window by a percentage or pixel amount.
+  - commands: ["resize --width -2%"]
     bindings: ["alt+u"]
   - commands: ["resize --width +2%"]
     bindings: ["alt+p"]
@@ -141,8 +141,8 @@ keybindings:
   - commands: ["resize --height -2%"]
     bindings: ["alt+i"]
   - commands: ["wm-enable-binding-mode --name resize"]
-    # As an alternative to the resize keybindings above, resize mode enables
 
+    # As an alternative to the resize keybindings above, resize mode enables
     # the name 'resize'.
     # resizing via arrow keys or HJKL. The binding mode is defined above with
     bindings: ["alt+r"]
@@ -197,18 +197,18 @@ keybindings:
     # `shell-exec %ProgramFiles%/Git/git-bash.exe` to start Windows
     bindings: ["alt+enter"]
   - commands: ["focus --next-workspace"]
-    # Focus the next/previous workspace defined in `workspaces` config.
 
+    # Focus the next/previous workspace defined in `workspaces` config.
     bindings: ["alt+s"]
   - commands: ["focus --prev-workspace"]
     bindings: ["alt+a"]
   - commands: ["focus --recent-workspace"]
-    # Focus the workspace that last had focus.
 
+    # Focus the workspace that last had focus.
     bindings: ["alt+d"]
   - commands: ["focus --workspace 1"]
-    # Change focus to a workspace defined in `workspaces` config.
 
+    # Change focus to a workspace defined in `workspaces` config.
     bindings: ["alt+1"]
   - commands: ["focus --workspace 2"]
     bindings: ["alt+2"]
@@ -227,8 +227,8 @@ keybindings:
   - commands: ["focus --workspace 9"]
     bindings: ["alt+9"]
   - commands: ["move-workspace --direction left"]
-    # Move the focused window's parent workspace to a monitor in a given
 
+    # Move the focused window's parent workspace to a monitor in a given
     # direction.
     bindings: ["alt+ctrl+a"]
   - commands: ["move-workspace --direction right"]
@@ -238,8 +238,8 @@ keybindings:
   - commands: ["move-workspace --direction down"]
     bindings: ["alt+ctrl+s"]
   - commands: ["move --workspace 1", "focus --workspace 1"]
-    # Move focused window to a workspace defined in `workspaces` config.
 
+    # Move focused window to a workspace defined in `workspaces` config.
     bindings: ["alt+shift+1"]
   - commands: ["move --workspace 2", "focus --workspace 2"]
     bindings: ["alt+shift+2"]
