@@ -73,6 +73,7 @@ workspaces:
   - name: "7"
   - name: "8"
   - name: "9"
+  - name: "0"
 window_rules:
   - commands: ["ignore"]
     match:
@@ -226,6 +227,8 @@ keybindings:
     bindings: ["alt+8"]
   - commands: ["focus --workspace 9"]
     bindings: ["alt+9"]
+  - commands: ["focus --workspace 0"]
+    bindings: ["alt+0"]
   - commands: ["move-workspace --direction left"]
 
     # Move the focused window's parent workspace to a monitor in a given
@@ -257,3 +260,5 @@ keybindings:
     bindings: ["alt+shift+8"]
   - commands: ["move --workspace 9", "focus --workspace 9"]
     bindings: ["alt+shift+9"]
+  - commands: ["move --workspace 0", "focus --workspace 0"]
+    bindings: ["alt+shift+0"]
