@@ -61,9 +61,9 @@ config.colors = {
 	ansi = {
 		"#090618",
 		"#c34043",
-		"#bf6ebe",
+		"#FF5454",
 		"#00ffcd",
-		"#e0c4ff",
+		"#e8d4ff",
 		"#ff88df",
 		"#f9a4e2",
 		"#DEBAD4",
