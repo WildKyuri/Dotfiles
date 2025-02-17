@@ -29,13 +29,6 @@ return {
       render = "wrapped-compact",
     },
   },
-  --            Colors
-  {
-    "norcalli/nvim-colorizer.lua",
-    config = function()
-      require("colorizer").setup({ "*" })
-    end,
-  },
   --             BufferLine
   {
     "akinsho/bufferline.nvim",
