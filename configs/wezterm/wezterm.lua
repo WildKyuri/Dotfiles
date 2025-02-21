@@ -35,11 +35,35 @@ local function toggle_opacity(window, pane)
 	window:set_config_overrides({ window_background_opacity = config.window_background_opacity })
 end
 
+-- Paleta de Colores
+-- "#8635e0"
+-- "#a656ff"
+-- "#c088ff"
+-- "#ff88df"
+-- "#f9a4e2"
+-- "#F4CDE9"
+-- "#DEBAD4"
+-- "#C8A6BE"
+-- "#B293A8"
+-- "#9C7F92"
+-- "#866C7D"
+-- "#705867"
+-- "#5A4551"
+-- "#44313B"
+-- "#8ffff1"
+-- "#090618"
+-- "#C8A6BE"
+-- "#bf6ebe"
+-- "#a700d5"
+-- "#e0c4ff"
+-- "#e8d4ff"
+-- "#c34a4a"
+
 -- my coolnight colorscheme:
 config.colors = {
 	-- foreground = "#dcd7ba",
-	-- background = "#1f1f28", -- Dark Pink
-	background = "#0c0b0f", -- Dark Purple
+	background = "#1f1f28", -- Dark Pink
+	-- background = "#0c0b0f", -- Dark Purple
 	-- background = "#3b224c",
 	-- background = "#181616", -- vague.nvim bg
 	-- background = "#080808", -- almost black
@@ -61,7 +85,7 @@ config.colors = {
 	ansi = {
 		"#090618",
 		"#c34043",
-		"#FF5454",
+		"#ffb7ed",
 		"#00ffcd",
 		"#e8d4ff",
 		"#ff88df",
@@ -94,9 +118,13 @@ config.launch_menu = {
 		label = "WSL - Ubuntu",
 		args = { "wsl.exe", "--distribution", "Ubuntu" },
 	},
+	{
+		label = "PowerShell",
+		args = { "pwsh.exe" },
+	},
 }
+
 -- activate ONLY if windows --
--- config.default_domain = "WSL:Ubuntu"
 config.default_domain = "WSL:ParrotOS"
 
 config.max_fps = 165
@@ -194,7 +222,7 @@ config.keys = {
 	},
 	-- Cambiar Ubuntu y Parrot
 	{
-		key = "L",
+		key = "o",
 		mods = "CTRL|SHIFT",
 		action = "ShowLauncher",
 	},

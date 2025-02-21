@@ -20,15 +20,6 @@ return {
       end
     end,
   },
-  --            Notify
-  {
-    "rcarriga/nvim-notify",
-    opts = {
-      timeout = 5000,
-      background_colour = "#000000",
-      render = "wrapped-compact",
-    },
-  },
   --             BufferLine
   {
     "akinsho/bufferline.nvim",
@@ -87,28 +78,55 @@ return {
       "DBUIAddConnection",
       "DBUIFindBuffer",
     },
+    -- { -- optional saghen/blink.cmp completion source
+    --   "saghen/blink.cmp",
+    --   opts = {
+    --     sources = {
+    --       -- add vim-dadbod-completion to your completion providers
+    --       completion = {
+    --         enabled_providers = { "lsp", "path", "snippets", "buffer", "dadbod" },
+    --       },
+    --       providers = {
+    --         dadbod = { name = "Dadbod", module = "vim_dadbod_completion.blink" },
+    --       },
+    --     },
+    --   },
+    -- },
     init = function()
       -- Your DBUI configuration
       vim.g.db_ui_use_nerd_fonts = 1
     end,
   },
-  -- LiveServer
+  -- FiveServer
   {
-    "barrett-ruth/live-server.nvim",
-    cmd = { "LiveServerStart", "LiveServerStop" },
-    config = function()
-      require("live-server").setup({
-        args = {
-          "--browser=firefox",
-        },
-      })
+    "Diogo-ss/five-server.nvim",
+    cmd = { "FiveServer" },
+    build = function()
+      require("fs.utils.install")()
+    end,
+    opts = {
+      notify = true,
+      browser = "firefox",
+    },
+    config = function(_, opts)
+      require("fs").setup(opts)
     end,
   },
   -- Terminal
   {
     "akinsho/toggleterm.nvim",
     version = "*",
-    config = true,
+    config = function()
+      require("toggleterm").setup({
+        direction = "float",
+        float_opts = {
+          border = "rounded",
+          width = 120,
+          height = 30,
+          winblend = 3,
+        },
+      })
+    end,
   },
   -- Auto Sessions
   {

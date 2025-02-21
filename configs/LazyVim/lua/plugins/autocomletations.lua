@@ -1,11 +1,5 @@
 return {
   {
-    "rafamadriz/friendly-snippets",
-    config = function()
-      require("luasnip.loaders.from_vscode").lazy_load()
-    end,
-  },
-  {
     "saghen/blink.cmp",
     version = "v0.*",
     dependencies = {
@@ -20,6 +14,7 @@ return {
         use_nvim_cmp_as_default = true,
       },
       snippets = {
+        preset = "luasnip",
         expand = function(snippet)
           require("luasnip").lsp_expand(snippet)
         end,
@@ -33,9 +28,15 @@ return {
           require("luasnip").jump(direction)
         end,
       },
-      sources = {
-        default = { "lsp", "path", "snippets", "buffer" },
+      completion = {
+        documentation = {
+          auto_show = true,
+          auto_show_delay_ms = 200,
+        },
       },
+    },
+    sources = {
+      default = { "lsp", "path", "snippets", "buffer" },
     },
   },
 }

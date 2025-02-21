@@ -23,8 +23,6 @@ return {
 
 
 
-
-
           ]],
           -- stylua: ignore
           -- @type snacks.dashboard.Item[]
@@ -46,6 +44,12 @@ return {
               desc = "Open Terminal                        ",
               action = "Terminal",
               key = "space th",
+            },
+            {
+              icon = "⛬     ",
+              desc = "File Directory                       ",
+              action = "Oil file_directory",
+              key = "-",
             },
             {
               icon = "☯     ",

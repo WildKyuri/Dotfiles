@@ -99,6 +99,7 @@ return {
     config = function()
       local none_ls = require("null-ls")
       local formatting = none_ls.builtins.formatting
+      -- Función para deshabilitar formateo si el archivo contiene 'mermaid'
 
       none_ls.setup({
         sources = {
@@ -108,6 +109,8 @@ return {
           formatting.black, -- Python
           formatting.clang_format, -- C/C++
           formatting.csharpier, -- C#
+
+          formatting.prettierd, -- JavaScript/TypeScript, HTML, CSS
         },
         on_attach = function(client)
           if client.server_capabilities.documentFormattingProvider then

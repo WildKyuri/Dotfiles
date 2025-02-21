@@ -1,32 +1,104 @@
 local keymap = vim.keymap
 local opts = { noremap = true, silent = true }
-local builtin = require("telescope.builtin")
+local snacks = require("snacks")
 local ls = require("luasnip")
 
 keymap.set("n", "x", '"_x')
 
---        telescope
--- Atajo para buscar archivos
-keymap.set("n", "<Leader>ff", function()
-  builtin.find_files({})
+--      Snacks Picker
+-- Buscar archivos
+keymap.set("n", "<Leader><Leader>", function()
+  snacks.picker.files({
+    finder = "files",
+    ignored = true,
+    hidden = true,
+    show_empty = true,
+  })
 end, opts)
 
--- Atajo para búsqueda en vivo (live grep)
+-- Live Grep
 keymap.set("n", "<Leader>fg", function()
-  builtin.live_grep({})
+  snacks.picker.files({
+    finder = "grep",
+    regex = true,
+    format = "file",
+    show_empty = true,
+    live = true, -- live grep by default
+    supports_live = true,
+  })
 end, opts)
 
--- Atajo para listar buffers
+-- Buffers
 keymap.set("n", "<Leader>fb", function()
-  builtin.buffers({})
+  snacks.picker.buffers({
+    finder = "buffers",
+    sort_lastused = true,
+    win = {
+      input = {
+        keys = {
+          ["<c-x>"] = { "bufdelete", mode = { "n", "i" } },
+        },
+      },
+      list = { keys = { ["dd"] = "bufdelete" } },
+    },
+  })
 end, opts)
 
--- Atajo para búsqueda de tags de ayuda
-keymap.set("n", "<Leader>fh", function()
-  builtin.help_tags({})
+--  Git Log
+keymap.set("n", "<Leader>gl", function()
+  snacks.picker.git_log({
+    finder = "git_log",
+    format = "git_log",
+    preview = "git_show",
+    confirm = "git_checkout",
+  })
 end, opts)
--- Atajo para Treesitter
-keymap.set("n", "<Leader>ft", builtin.treesitter, opts)
+
+--  Git status
+keymap.set("n", "<Leader>gs", function()
+  snacks.picker.git_status({
+    finder = "git_status",
+    preview = "git_status",
+    win = {
+      input = {
+        keys = {
+          ["<Tab>"] = { "git_stage", mode = { "n", "i" } },
+        },
+      },
+    },
+  })
+end, opts)
+
+--  Git Branch
+keymap.set("n", "<Leader>gb", function()
+  snacks.picker.git_branches({
+    layout = "select",
+  })
+end, opts)
+
+--  Treesitter
+keymap.set("n", "<Leader>ft", function()
+  snacks.picker.treesitter({
+    finder = "treesitter_symbols",
+    tree = true,
+    filter = {
+      default = {
+        "Class",
+        "Enum",
+        "Field",
+        "Function",
+        "Method",
+        "Module",
+        "Namespace",
+        "Struct",
+        "Trait",
+      },
+      -- set to `true` to include all symbols
+      markdown = true,
+      help = true,
+    },
+  })
+end, opts)
 
 -- Select all
 keymap.set("n", "<Leader>ad", "gg<S-v>G")
@@ -45,7 +117,8 @@ keymap.set("n", "<Leader>las", require("auto-session.session-lens").search_sessi
 })
 
 -- Terminal
-keymap.set("n", "<Leader>th", ":ToggleTerm direction=horizontal<CR>", opts)
+-- keymap.set("n", "<Leader>th", ":ToggleTerm direction=vertical size=70<CR>", opts)
+keymap.set("n", "<Leader>tf", ":ToggleTerm direction=float<CR>", opts)
 
 function _G.set_terminal_keymaps()
   local opts = { noremap = true }
@@ -80,6 +153,12 @@ keymap.set("n", "<C-S-l>", "<C-w>>")
 keymap.set("n", "<C-S-k>", "<C-w>+")
 keymap.set("n", "<C-S-j>", "<C-w>-")
 
+-- Moverse en modo inserción
+keymap.set("i", "<C-h>", "<Left>", opts)  -- Izquierda
+keymap.set("i", "<C-j>", "<Down>", opts)  -- Abajo
+keymap.set("i", "<C-k>", "<Up>", opts)    -- Arriba
+keymap.set("i", "<C-l>", "<Right>", opts) -- Derecha
+
 -- Diagnostics
 keymap.set("n", "<C-j>", function()
   vim.diagnostic.goto_next()
@@ -94,9 +173,9 @@ keymap.set("n", "<Leader>m", ":MarkdownPreviewToggle<CR>", opts)
 -- Regresar al dashboard
 keymap.set("n", "<Leader>gd", ":Dashboard<CR>", opts)
 
--- Live Server
-keymap.set("n", "<Leader>ls", ":LiveServerStart<CR>", opts)
-keymap.set("n", "<Leader>le", ":LiveServerStop<CR>", opts)
+-- Five Server
+keymap.set("n", "<Leader>fs", ":FiveServer start<CR>", opts)
+keymap.set("n", "<Leader>fse", ":FiveServer stop<CR>", opts)
 
 -- Databases
 keymap.set("n", "<Leader>db", "<cmd>tabnew<cr><bar><bar><cmd>DBUI<cr>")

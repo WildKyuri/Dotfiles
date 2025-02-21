@@ -1,7 +1,8 @@
 general:
   # Commands to run when the WM has started (e.g. to run a script or launch
   # another application). Here we are running a batch script to start Zebar.
-  startup_commands: ["shell-exec zebar"] # Whether to automatically focus windows underneath the cursor.
+  startup_commands: ["shell-exec zebar"]
+  # Whether to automatically focus windows underneath the cursor.
 
   focus_follows_cursor: false
   # Whether to switch back and forth between the previously focused
@@ -87,7 +88,6 @@ window_rules:
         # Ignore rules for various 3rd-party apps.
       - window_process: { equals: "Lively" }
         window_class: { regex: "HwndWrapper*" }
-
 binding_modes:
   # When enabled, the focused window can be resized via arrow keys or HJKL.
   - name: "resize"
@@ -122,8 +122,8 @@ keybindings:
   - commands: ["focus --direction down"]
     bindings: ["alt+j"]
   - commands: ["move --direction left"]
-
     # Move focused window in a given direction.
+
     bindings: ["alt+left"]
   - commands: ["move --direction right"]
     bindings: ["alt+right"]
@@ -131,9 +131,9 @@ keybindings:
     bindings: ["alt+up"]
   - commands: ["move --direction down"]
     bindings: ["alt+down"]
-
-    # Resize focused window by a percentage or pixel amount.
   - commands: ["resize --width -2%"]
+    # Resize focused window by a percentage or pixel amount.
+
     bindings: ["alt+u"]
   - commands: ["resize --width +2%"]
     bindings: ["alt+p"]
@@ -142,8 +142,8 @@ keybindings:
   - commands: ["resize --height -2%"]
     bindings: ["alt+i"]
   - commands: ["wm-enable-binding-mode --name resize"]
-
     # As an alternative to the resize keybindings above, resize mode enables
+
     # the name 'resize'.
     # resizing via arrow keys or HJKL. The binding mode is defined above with
     bindings: ["alt+r"]
@@ -185,31 +185,30 @@ keybindings:
     bindings: ["alt+shift+e"]
   - commands: ["wm-reload-config"]
     # Re-evaluate configuration file.
-
     bindings: ["alt+shift+r"]
   - commands: ["wm-redraw"]
     # Redraw all windows.
 
     bindings: ["alt+shift+w"]
-  - commands: ["shell-exec wt.exe"]
+  - commands: ["shell-exec wezterm-gui"]
     # Launch CMD terminal. Alternatively, use `shell-exec wt` or
 
     # Terminal and Git Bash respectively.
     # `shell-exec %ProgramFiles%/Git/git-bash.exe` to start Windows
     bindings: ["alt+enter"]
   - commands: ["focus --next-workspace"]
-
     # Focus the next/previous workspace defined in `workspaces` config.
+
     bindings: ["alt+s"]
   - commands: ["focus --prev-workspace"]
     bindings: ["alt+a"]
   - commands: ["focus --recent-workspace"]
-
     # Focus the workspace that last had focus.
+
     bindings: ["alt+d"]
-  - commands: ["focus --workspace 1"]
 
     # Change focus to a workspace defined in `workspaces` config.
+  - commands: ["focus --workspace 1"]
     bindings: ["alt+1"]
   - commands: ["focus --workspace 2"]
     bindings: ["alt+2"]
@@ -230,8 +229,8 @@ keybindings:
   - commands: ["focus --workspace 0"]
     bindings: ["alt+0"]
   - commands: ["move-workspace --direction left"]
-
     # Move the focused window's parent workspace to a monitor in a given
+
     # direction.
     bindings: ["alt+ctrl+a"]
   - commands: ["move-workspace --direction right"]
@@ -240,9 +239,9 @@ keybindings:
     bindings: ["alt+ctrl+d"]
   - commands: ["move-workspace --direction down"]
     bindings: ["alt+ctrl+s"]
-  - commands: ["move --workspace 1", "focus --workspace 1"]
 
     # Move focused window to a workspace defined in `workspaces` config.
+  - commands: ["move --workspace 1", "focus --workspace 1"]
     bindings: ["alt+shift+1"]
   - commands: ["move --workspace 2", "focus --workspace 2"]
     bindings: ["alt+shift+2"]
