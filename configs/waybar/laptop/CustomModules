@@ -1,0 +1,69 @@
+{
+  "custom/media": {
+  "format": "{icon} {text}",
+  "return-type": "json",
+  "max-length": 40,
+  "format-icons": {
+    "spotify": "",
+    "default": "🎜",
+  },
+  "escape": true,
+  // "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null", // Script in resources folder
+  "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null", // Filter player based on name
+  },
+
+  "custom/power": {
+    "format": "⏻ ",
+    "tooltip": false,
+    "menu": "on-click",
+    "menu-file": "$HOME/.config/waybar/power_menu.xml", // Menu file in resources folder
+    "menu-actions": {
+      "shutdown": "shutdown",
+      "reboot": "reboot",
+      "suspend": "systemctl suspend",
+      "hibernate": "systemctl hibernate",
+    },
+  },
+  "custom/systemICON": {
+    "format": " ",
+    "tooltip-format": "ArchLinux",
+  },
+  "custom/swaync": {
+	  "tooltip": true,
+	  "tooltip-format": "Left Click: Launch Notification Center\nRight Click: Do not Disturb",
+	  "format": "{} {icon} ",
+	  "format-icons": {
+		  "notification": "<span foreground='red'><sup></sup></span>",
+		  "none": "",
+		  "dnd-notification": "<span foreground='red'><sup></sup></span>",
+		  "dnd-none": "",
+		  "inhibited-notification": "<span foreground='red'><sup></sup></span>",
+		  "inhibited-none": "",
+		  "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
+		  "dnd-inhibited-none": ""
+	  },
+	  "return-type": "json",
+	  "exec-if": "which swaync-client",
+	  "exec": "swaync-client -swb",
+	  "on-click": "sleep 0.1 && swaync-client -t -sw",
+	  "on-click-right": "swaync-client -d -sw",
+	  "escape": true,
+  },
+  "custom/cpu_usage": {
+    "tooltip": false,
+    "exec": "/home/kyuri/.config/hypr/scripts/cpu-usage.sh",
+    "markup": true,
+    "interval": 10,
+  },
+  "custom/cpu_temp": {
+    "tooltip": false,
+    "exec": "/home/kyuri/.config/hypr/scripts/cpu-temp.sh",
+    "markup": true,
+    "interval": 10,
+  },
+  "custom/battery": {
+    "tooltip": false,
+    "exec": "/home/kyuri/.config/hypr/scripts/battery.sh",
+    "markup": true,
+  },
+}

@@ -1,0 +1,125 @@
+{
+  // Modules configuration
+  "hyprland/workspaces": {
+  "all-outputs": false,
+	"active-only": false,
+	"on-click": "activate",
+	"on-scroll-up": "hyprctl dispatch workspace e+1",
+	"on-scroll-down": "hyprctl dispatch workspace e-1",
+	"format": "{icon} {windows}",
+  "format-window-separator": " ",
+  "window-rewrite-default": " ",
+  "window-rewrite": {
+      "title<.youtube.>": " ",
+      "title<.amazon.>": " ",
+      "title<.reddit.>": " ",
+      "title<.Picture-in-Picture.*>": " ",
+      "class<firefox|org.mozilla.firefox|librewolf|floorp|mercury-browser|[Cc]achy-browser>": " ",
+      "class<kitty|konsole>": " ",
+      "class<brave|Brave>": " ",
+      "class<vmware|vmware-workstation>": " ",
+      "class<kitty-dropterm>": " ",
+      "class<org.telegram.desktop|io.github.tdesktop_x64.TDesktop>": " ",
+      "class<[Ss]potify>": " ",
+      "class<VSCode|code-url-handler|code-oss|codium|codium-url-handler|VSCodium>": "󰨞 ",
+      "class<thunar>": "󰝰 ",
+      "class<[Tt]hunderbird|[Tt]hunderbird-esr>": " ",
+      "class<eu.betterbird.Betterbird>": " ",
+      "class<discord|[Ww]ebcord|Vesktop>": " ",
+      "class<subl>": "󰅳 ",
+      "class<mpv>": " ",
+      "class<Cider>": "󰎆 ",
+      "class<virt-manager>": " ",
+      "class<.virt-manager-wrapped>": " ",
+      "class<codeblocks>": "󰅩 ",
+      "class<mousepad>": " ",
+      "class<libreoffice-writer>": " ",
+      "class<libreoffice-startcenter>": "󰏆 ",
+      "class<com.obsproject.Studio>": " ",
+      "class<polkit-gnome-authentication-agent-1>": "󰒃 ",
+      "class<nwg-look>": " ",
+      "class<zen>": "󰰷 ", //Zen Browser
+      "class<waterfox|waterfox-bin>": " ",
+      "class<microsoft-edge>": " ",
+      "class<vlc>": "󰕼 ",
+      "class<steam>": " "
+    },
+  }, 
+
+  "tray": {
+    // "icon-size": 21,
+    "spacing": 10,
+  },
+
+  "clock": {
+    // "timezone": "America/New_York",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "format": "{:%I:%M %p}",
+    "format-alt": "{:%Y-%m-%d %I:%M %p}",
+    "calendar": {
+      "mode": "year",
+      "mode-mon-col": 3,
+      "on-scroll": 1,
+      "format": {
+        "months": "<span color='#ffead3'><b>{}</b></span>",
+			  "days": "<span color='#ecc6d9'><b>{}</b></span>",
+			  "weeks": "<span color='#99ffdd'><b>W{}</b></span>",
+			  "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+			  "today": "<span color='#ff6699'><b><u>{}</u></b></span>"
+      }
+    }
+  },
+  
+  "cpu": {
+    "format": " {usage}%",
+    "tooltip": true,
+  },
+
+  "memory": {
+    "format": " {percentage}%",
+  },
+
+  "temperature": {
+    // "thermal-zone": 2,
+    // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+    "critical-threshold": 80,
+    // "format-critical": "{temperatureC}°C {icon}",
+    "format": "{temperatureC}°C {icon}",
+    "format-icons": ["", "", " "]
+  },
+  // Buscar en los dotfiles el script
+  "network": {
+    "format-wifi": "{essid} ({signalStrength}%) ",
+    "format-ethernet": "Connected 󰈀",
+    "tooltip-format": "{ifname} via {gwaddr} ",
+    "format-linked": "{ifname} (No IP) ",
+    "format-disconnected": "Disconnected ⚠",
+    "format-alt": "{ifname}: {ipaddr}/{cidr}",
+  },
+
+  "pulseaudio": {
+    // "scroll-step": 1, // %, can be a float
+    //"format": "{volume}% {icon} {format_source}",
+    "format": "{volume}% {icon} ",
+    //"format-bluetooth": "{volume}% {icon} {format_source}",
+    "format-bluetooth": "{volume}% {icon}",
+    "format-bluetooth-muted": " {icon}",
+    "format-muted": " ",
+    "format-source": "{volume}% ",
+    "format-source-muted": "",
+    "format-icons": {
+      "headphone": "",
+      "hands-free": "",
+      "headset": " ",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": [
+        "",
+        "",
+        ""
+      ],
+    },
+    "on-click": "pavucontrol",
+  },
+}
