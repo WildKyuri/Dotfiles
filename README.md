@@ -1,20 +1,46 @@
 # :city_sunset: Dotfiles
 
-We only need some few tools
+Here you will find many configs for:
 
-## :diamonds: Requirements and tools
+- Tools
 
-It will depend on where are u working (Windows/Linux)
+  - nvim
+  - zsh
+  - powerlevel10k
+  - fastfetch
+
+- Terminals
+
+  - kitty
+  - wezterm
+  - Windows Powershell
+
+- Tiling Windows Manager
+  - GlazeWM (Windows)
+  - Hyprland (Arch)
+
+## Hyprland
+
+All configs for: (pc/laptop)
+
+- waybar
+- hyprlock
+- hyprpaper
+- hypridle
+- swaync
+
+## Neovim
+
+### :diamonds: Requirements and tools
 
 - NodeJS & npm
-- Nerd Fonts (Hack Nerd Font)
-- C compiler (environment variables)
+- C compiler (environment variables Win)
   - https://github.com/niXman/mingw-builds-binaries/releases
 - fd
 - fzf
 - ripgrep
 
-## :crystal_ball: Neovim setup
+## :crystal_ball: Neovim files structure
 
 ```
 📂 LOCATION
@@ -31,7 +57,7 @@ It will depend on where are u working (Windows/Linux)
 └───🔰stylua.toml
 ```
 
-## :rocket: Installation
+### :rocket: Installation
 
 Clone the repository.
 
@@ -39,7 +65,7 @@ Clone the repository.
 https://github.com/WildKyuri/Dotfiles
 ```
 
-Moves de files inside `Dotfiles/configs/LazyVim` into
+Moves the configs files into:
 
 Windows:
 `Appdata\local\nvim\`
@@ -53,7 +79,3 @@ Finally just run nvim normally
 
 - Dashboard (snacks)
   - https://github.com/nvimdev/dashboard-nvim/wiki/Ascii-Header-Text
-
-![Workspace](./doc/img/LazyVim1.png)
-
-![Workspace](./doc/img/LazyVim2.png)
