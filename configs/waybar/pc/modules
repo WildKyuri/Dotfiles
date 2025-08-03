@@ -52,10 +52,12 @@
   },
 
   "clock": {
-    // "timezone": "America/New_York",
-    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-    "format": "{:%I:%M %p}",
-    "format-alt": "{:%Y-%m-%d %I:%M %p}",
+    // "timezone": "America/Mexico_City",
+
+    "tooltip-format": "<big>{:%A, %d/%m %H:%M}</big>\n<tt><small>{calendar}</small></tt>",
+    "format": "{:%A, %d/%m %H:%M}",      // principal: Saturday, 02/08 13:10
+    "format-alt": "{:%I:%M %p}",
+
     "calendar": {
       "mode": "year",
       "mode-mon-col": 3,
@@ -85,7 +87,7 @@
 
   "pulseaudio": {
     // "scroll-step": 1, // %, can be a float
-    //"format": "{volume}% {icon} {format_source}",
+    //"format": "{volume}%{icon} {format_source}",
     "format": "{volume}% {icon} ",
     //"format-bluetooth": "{volume}% {icon} {format_source}",
     "format-bluetooth": "{volume}% {icon}",

@@ -8,24 +8,25 @@
   // "width": 1920, // Waybar width
   "include": [
     "~/.config/waybar/modules",
-    "~/.config/waybar/CustomModules",
+    "~/.config/waybar/CustomModules"
   ],
   "spacing": -3, // Gaps between modules (4px)
   "modules-left": [
     "custom/systemICON",
     // "clock",
-    "tray",
+    "group/others",
+    // "tray",
     // "hyprland/language",
-    "custom/media",
+    "none",
   ],
   "modules-center": [
     "group/workspaces"
   ],
   "modules-right": [
-    "pulseaudio",
+    // "pulseaudio",
     "group/info",
     //"custom/swaync",
-    "custom/power"
+    "custom/power",
   ],
   "group/workspaces": {
     "orientation": "horizontal",
@@ -44,6 +45,14 @@
       "network"
     ],
   },
+  "group/others": {
+    "orientation": "horizontal",
+    "modules": [
+      "tray",
+      "pulseaudio",
+      "custom/media"
+    ],
+  },
   "group/custom_cpu": {
     "orientation": "horizontal",
     "drawer": {
@@ -54,7 +63,7 @@
     "modules": [
       // "cpu",
       "custom/cpu",
-      "custom/cpu_temp"
+      "custom/cpu_temp",
     ],
   },
   "group/custom_gpu": {
@@ -66,7 +75,7 @@
     },
     "modules": [
       "custom/gpu",
-      "custom/gpu_temp",
+      "custom/gpu_temp"
     ],
   },
 }
