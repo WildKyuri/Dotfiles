@@ -2,6 +2,35 @@ return {
   {
     "folke/snacks.nvim",
     opts = {
+      image = {
+        formats = {
+          "png",
+          "jpg",
+          "jpeg",
+          "gif",
+          "bmp",
+          "webp",
+          "tiff",
+          "heic",
+          "avif",
+          "mp4",
+          "mov",
+          "avi",
+          "mkv",
+          "webm",
+          "pdf",
+        },
+        enabled = true,
+        doc = {
+          -- inline = true,
+          inline = vim.g.neovim_mode == "skitty" and true or false,
+          float = true,
+          max_width = vim.g.neovim_mode == "skitty" and 20 or 60,
+          max_height = vim.g.neovim_mode == "skitty" and 10 or 30,
+          -- max_width = 80,
+          -- max_height = 80,
+        },
+      },
       dashboard = {
         preset = {
           header = [[

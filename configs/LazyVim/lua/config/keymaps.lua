@@ -69,6 +69,10 @@ keymap.set("n", "<Leader>gs", function()
   })
 end, opts)
 
+keymap.set("n", "<leader>gsd", function()
+  require("gitsigns").diffthis()
+end, { desc = "Gitsigns: diffthis" })
+
 --  Git Branch
 keymap.set("n", "<Leader>gb", function()
   snacks.picker.git_branches({
@@ -108,8 +112,10 @@ keymap.set("n", "<Leader>w", ":update<Return>", opts)
 keymap.set("n", "<Leader>q", ":quit<Return>", opts)
 keymap.set("n", "<Leader>Q", ":qa<Return>", opts)
 
--- Neo tree
-keymap.set("n", "<Leader>o", ":Neotree focus<CR>", opts)
+-- Sncacks Explorer
+keymap.set("n", "<leader>e", function()
+  require("snacks.explorer").open()
+end, { desc = "Abrir explorer de Snacks" })
 
 -- Auto Session Lens
 keymap.set("n", "<Leader>las", require("auto-session.session-lens").search_session, {
@@ -117,8 +123,8 @@ keymap.set("n", "<Leader>las", require("auto-session.session-lens").search_sessi
 })
 
 -- Terminal
--- keymap.set("n", "<Leader>th", ":ToggleTerm direction=vertical size=70<CR>", opts)
-keymap.set("n", "<Leader>tf", ":ToggleTerm direction=float<CR>", opts)
+keymap.set("n", "<Leader>tf", ":ToggleTerm direction=horizontal size=15<CR>", opts)
+keymap.set("n", "<Leader>/", ":ToggleTerm direction=float<CR>", opts)
 
 function _G.set_terminal_keymaps()
   local opts = { noremap = true }
@@ -148,21 +154,16 @@ keymap.set("n", "sj", "<C-w>j")
 keymap.set("n", "sl", "<C-w>l")
 
 -- Resize window
-keymap.set("n", "<C-S-h>", "<C-w><")
-keymap.set("n", "<C-S-l>", "<C-w>>")
-keymap.set("n", "<C-S-k>", "<C-w>+")
-keymap.set("n", "<C-S-j>", "<C-w>-")
+keymap.set("n", "<Left>", "<C-w>>")
+keymap.set("n", "<Right>", "<C-w><")
+keymap.set("n", "<Up>", "<C-w>-")
+keymap.set("n", "<Down>", "<C-w>+")
 
 -- Moverse en modo inserción
 keymap.set("i", "<C-h>", "<Left>", opts)  -- Izquierda
 keymap.set("i", "<C-j>", "<Down>", opts)  -- Abajo
 keymap.set("i", "<C-k>", "<Up>", opts)    -- Arriba
 keymap.set("i", "<C-l>", "<Right>", opts) -- Derecha
-
--- Diagnostics
-keymap.set("n", "<C-j>", function()
-  vim.diagnostic.goto_next()
-end, opts)
 
 -- Oil
 keymap.set("n", "-", ":Oil<Return>", opts)
@@ -199,3 +200,28 @@ keymap.set({ "i", "s" }, "<c-a>", function()
     ls.jump(-1)
   end
 end, { silent = true })
+
+-- Signature help (documentación de parámetros de función)
+-- Modo insert: cuando estás dentro de los paréntesis
+-- keymap.set("i", "<A-g>", vim.lsp.buf.signature_help, { silent = true, desc = "Signature help (insert)" })
+
+-- Modo normal: sobre el nombre de la función
+-- keymap.set("n", "<A-g>", vim.lsp.buf.signature_help, { silent = true, desc = "Signature help (normal)" })
+
+-- Toggle para signature help
+local function toggle_signature_help()
+  -- Busca si ya hay una ventana flotante de signature_help abierta
+  for _, win in ipairs(vim.api.nvim_list_wins()) do
+    local buf = vim.api.nvim_win_get_buf(win)
+    if vim.bo[buf].filetype == "lspinfo" then
+      vim.api.nvim_win_close(win, true)
+      return
+    end
+  end
+  -- Si no la encontramos, abrimos signature_help
+  vim.lsp.buf.signature_help()
+end
+
+-- Asignamos la misma tecla para togglear
+keymap.set("i", "<A-g>", toggle_signature_help, { silent = true, desc = "Toggle signature help (insert)" })
+keymap.set("n", "<A-g>", toggle_signature_help, { silent = true, desc = "Toggle signature help (normal)" })

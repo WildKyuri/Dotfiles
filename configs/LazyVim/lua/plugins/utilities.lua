@@ -121,9 +121,17 @@ return {
         direction = "float",
         float_opts = {
           border = "rounded",
-          width = 120,
-          height = 30,
-          winblend = 3,
+          -- width = 160,
+          width = 80,
+          height = 35,
+          winblend = 20,
+          row = math.max(1, vim.o.lines * 0.05), -- 5% desde arriba
+          col = 100, -- Forzarla muy a la derecha
+        },
+        highlights = {
+          Normal = {
+            guibg = "#00c1ff",
+          },
         },
       })
     end,
