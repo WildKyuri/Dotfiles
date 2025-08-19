@@ -9,6 +9,7 @@ return {
     "jsonls",
     "vtsls",
     "intelephense",
+    "emmet_ls",
     "pyright",
     "clangd",
     "csharp_ls",
@@ -19,7 +20,6 @@ return {
   null_servers = {
     "stylua",
     "prettierd",
-    "eslint_d",
     "black",
     "clang_format",
     "csharpier",
@@ -28,15 +28,11 @@ return {
 
   -- Mapeo de LSP a DAP (para debugging.lua)
   lsp_to_dap = {
-    -- clangd = "codelldb",
-    -- csharp_ls = "netcoredbg",
-    -- jdtls = "java-debug-adapter",
-    -- pyright = "debugpy",
-    -- vtsls = "js-debug-adapter",
-    "codelldb", -- C/C++
-    "debugpy", -- Python
-    "js-debug-adapter", -- JavaScript/TypeScript
-    "netcoredbg", -- C#
+    python3 = "debugpy",  -- Python
+    csharp = "netcoredbg",
+    cpp = "codelldb",     -- C/C++
+    c = "cpp",
+    "js-debug-adapter",   -- JavaScript/TypeScript
     "java-debug-adapter", -- Java
   },
 
@@ -46,6 +42,17 @@ return {
       handlers = {
         ["language/status"] = function() end,
         ["$/progress"] = function() end,
+      },
+    },
+    emmet_ls = {
+      filetypes = {
+        "html",
+        "css",
+        "scss",
+        "javascript",
+        "javascriptreact",
+        "typescriptreact",
+        "php", -- ✅ activa Emmet en PHP
       },
     },
   },

@@ -22,7 +22,7 @@ return {
         },
         enabled = true,
         doc = {
-          -- inline = true,
+          -- inline = false,
           inline = vim.g.neovim_mode == "skitty" and true or false,
           float = true,
           max_width = vim.g.neovim_mode == "skitty" and 20 or 60,
@@ -48,10 +48,6 @@ return {
    ⠈⢸⣿ ⠙⢿⣿⣿⣹⣿⣿⣿⣿⣟⡃⣽⣿⣿⡟⠁⣿⣿⢻⣿⣿⢿
     ⠘⣿⡄  ⠙⢿⣿⣿⣾⣿⣷⣿⣿⣿⠟⠁  ⣿⣿⣾⣿⡟⣿
      ⢻⡇⠸⣆  ⠈⠻⣿⡿⠿⠛⠉    ⢸⣿⣇⣿⣿⢿⣿
-
-
-
-
           ]],
           -- stylua: ignore
           -- @type snacks.dashboard.Item[]
@@ -59,8 +55,8 @@ return {
             {
               icon = "♟     ",
               desc = "Find Files                           ",
-              action = "Telescope file_browser",
-              key = "space ff",
+              action = "Snacks Picker",
+              key = "space space",
             },
             {
               icon = "♣     ",
@@ -72,25 +68,31 @@ return {
               icon = "⚜     ",
               desc = "Open Terminal                        ",
               action = "Terminal",
-              key = "space th",
+              key = "space /",
             },
             {
               icon = "⛬     ",
-              desc = "File Directory                       ",
+              desc = "File Directory oil                       ",
               action = "Oil file_directory",
               key = "-",
             },
             {
               icon = "☯     ",
               desc = "Git Status                           ",
-              action = "Telescope git status",
+              action = "Snacks git status",
               key = "space gs",
             },
             {
               icon = "♦     ",
               desc = "Git list commits                     ",
               action = "Telescope git commits",
-              key = "space gc",
+              key = "space gl",
+            },
+            {
+              icon = "✾     ",
+              desc = "Live Grep                            ",
+              action = "Picker Live Grep",
+              key = "space gl",
             },
             -- Some others:
             -- ✾ ♟  ♣  🂡  🃏 ☯  ♦
