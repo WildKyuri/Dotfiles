@@ -13,8 +13,8 @@ NUM_ARCHIVOS=$(ls "$DIRECTORIO"/Screenshot_*.png 2>/dev/null | wc -l)
 # Calcular el número de la siguiente captura
 NUM_SIGUIENTE=$((NUM_ARCHIVOS + 1))
 
-# Si el número supera 50, reiniciar a 1
-if [ "$NUM_SIGUIENTE" -gt 50 ]; then
+# Si el número supera 100, reiniciar a 1
+if [ "$NUM_SIGUIENTE" -gt 100 ]; then
   NUM_SIGUIENTE=1
 fi
 
