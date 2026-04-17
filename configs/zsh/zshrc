@@ -85,6 +85,7 @@ directories=(
     "/opt/nvim/bin"
     "/opt/htbmachines/htbmachines.sh"
     "/opt/yt-dlp/yt.sh"
+    # "/opt/pdfs/"
     # Añade más directorios si quieres
 )
 
