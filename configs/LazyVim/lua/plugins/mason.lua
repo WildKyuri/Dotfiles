@@ -3,18 +3,17 @@ local servers_config = require("config.lsp_servers")
 return {
   {
     "mason-org/mason.nvim",
-    config = function()
-      require("mason").setup()
-    end,
+    opts = {},
   },
   {
     "mason-org/mason-lspconfig.nvim",
-    after = "mason.nvim",
-    config = function()
-      require("mason-lspconfig").setup({
-        ensure_installed = servers_config.lsp_servers,
-      })
-    end,
+    opts = {
+      ensure_installed = servers_config.lsp_servers,
+    },
+    dependencies = {
+      { "mason-org/mason.nvim", opts = {} },
+      "neovim/nvim-lspconfig",
+    },
   },
   {
     "jay-babu/mason-null-ls.nvim",
@@ -25,7 +24,6 @@ return {
     },
   },
   {
-
     "neovim/nvim-lspconfig",
     -- after = "mason-lspconfig.nvim",
     dependencies = { "saghen/blink.cmp" },

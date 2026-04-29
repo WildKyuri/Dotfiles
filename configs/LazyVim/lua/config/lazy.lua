@@ -22,14 +22,15 @@ require("lazy").setup({
       "LazyVim/LazyVim",
       import = "lazyvim.plugins",
       opts = {
-        colorscheme = "duskfox",
+        -- colorscheme = "duskfox",
+        colorscheme = "aurora",
         -- colorscheme = "kanagawa",
-        -- colorscheme = "catpuccin",
+        -- colorscheme = "catppuccin",
       },
     },
     -- import/override with your plugins
     { import = "lazyvim.plugins.extras.lsp.none-ls" },
-    -- { import = "lazyvim.plugins.extras.linting.eslint" },
+    { import = "lazyvim.plugins.extras.linting.eslint" },
     { import = "lazyvim.plugins.extras.formatting.prettier" },
     { import = "lazyvim.plugins.extras.lang.typescript" },
     { import = "lazyvim.plugins.extras.lang.json" },

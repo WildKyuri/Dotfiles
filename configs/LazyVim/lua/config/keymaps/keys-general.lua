@@ -44,6 +44,6 @@ keymap.set("i", "<C-k>", "<Up>", opts) -- Arriba
 keymap.set("i", "<C-l>", "<Right>", opts) -- Derecha
 
 -- Notifications
-keymap.set("n", "<leader>n", function()
+keymap.set("n", "<leader>hn", function()
   require("noice").cmd("history")
 end, { desc = "Noice: Open history" })

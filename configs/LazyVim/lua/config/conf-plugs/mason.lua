@@ -22,7 +22,7 @@ local on_attach = function(client, bufnr)
   end
   local opts = { noremap = true, silent = true }
 
-  -- Keybindings para LSP
+  -- Keybindings para LSP (mostrar informacion)
   buf_set_keymap("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
 
   -- Puedes agregar más keybindings aquí según tus necesidades

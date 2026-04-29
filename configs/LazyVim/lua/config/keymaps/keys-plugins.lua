@@ -80,14 +80,19 @@ keymap.set("i", "<A-d>", toggle_signature_help, { silent = true, desc = "Toggle 
 keymap.set("n", "<A-d>", toggle_signature_help, { silent = true, desc = "Toggle signature help (normal)" })
 
 -- Dap nvim
-keymap.set("n", "<F5>", dap.continue, { desc = "Debug: Start/Continue" }) --> Iniciar/Continuar
-keymap.set("n", "<F10>", dap.step_over, { desc = "Debug: Step Over" }) --> Ejecuta sin entrar en funciones
-keymap.set("n", "<F11>", dap.step_into, { desc = "Debug: Step Into" }) --> Entra dentro de funciones
-keymap.set("n", "<F12>", dap.step_out, { desc = "Debug: Step Out" }) --> Sale de la funcion actual
+keymap.set("n", "<F5>", dap.continue, { desc = "Debug: Start/Continue" })                  --> Iniciar/Continuar
+keymap.set("n", "<F10>", dap.step_over, { desc = "Debug: Step Over" })                     --> Ejecuta sin entrar en funciones
+keymap.set("n", "<F11>", dap.step_into, { desc = "Debug: Step Into" })                     --> Entra dentro de funciones
+keymap.set("n", "<F12>", dap.step_out, { desc = "Debug: Step Out" })                       --> Sale de la funcion actual
 keymap.set("n", "<leader>b", dap.toggle_breakpoint, { desc = "Debug: Toggle Breakpoint" }) --> Breakpoint
-keymap.set("n", "<leader>B", function() --> Breakpoint condicional
+keymap.set("n", "<leader>B", function()                                                    --> Breakpoint condicional
   dap.set_breakpoint(vim.fn.input("Breakpoint condition: "))
 end, { desc = "Debug: Set Conditional Breakpoint" })
 
 -- Gitsigns
 keymap.set("n", "<leader>gp", ":Gitsigns preview_hunk<CR>", {})
+
+-- Snipe
+keymap.set("n", "<S-l>", function()
+  require("snipe").open_buffer_menu()
+end, opts)

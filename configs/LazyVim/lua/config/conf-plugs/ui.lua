@@ -35,12 +35,12 @@ require("noice").setup({
     view = "popup", -- se puede cambiar a "popup" si quieres más estilo
     opts = {
       enter = true, -- coloca el cursor dentro para copiar
+      size = {
+        width = 85,
+        height = 30,
+      },
       win_opts = {
         relative = "editor",
-        width = 80,
-        height = 20,
-        row = 2,
-        col = 10,
         border = "rounded",
       },
     },

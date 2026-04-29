@@ -1,6 +1,6 @@
 require("toggleterm").setup({
   size = 20,
-  open_mapping = [[<C-\>]],
+  open_mapping = [[<leader>/]],
   start_in_insert = true,
   float_opts = {
     border = "rounded",
@@ -12,9 +12,11 @@ require("toggleterm").setup({
   },
   direction = "float",
 })
+
 local Terminal = require("toggleterm.terminal").Terminal
 
--- Terminales personalizadas
+-- Terminales
+-- personalizadas
 local terminals = {
   one = Terminal:new({ hidden = true, direction = "float" }),
   two = Terminal:new({ hidden = true, direction = "float" }),

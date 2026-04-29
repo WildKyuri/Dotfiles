@@ -20,7 +20,7 @@ return {
           "webm",
           "pdf",
         },
-        enabled = true,
+        enabled = false,
         doc = {
           -- inline = false,
           inline = vim.g.neovim_mode == "skitty" and true or false,
