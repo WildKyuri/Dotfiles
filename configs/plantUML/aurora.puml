@@ -1,0 +1,137 @@
+<style>
+classDiagram {
+    BackgroundColor transparent
+    LineColor #7ee2ff
+    FontColor #e8eaf0
+  class {
+    BackgroundColor #162032
+    BorderColor #7ee2ff
+    FontColor #e8eaf0
+    FontSize 13
+    header {
+      BackgroundColor #0e1a2b
+      FontColor #7ee2ff
+      FontStyle bold
+    }
+  }
+  arrow {
+    LineColor #e9a7ff
+    FontColor #a9ffe0
+    FontSize 12
+    FontStyle italic
+  }
+}
+objectDiagram {
+  LineColor #7ee2ff
+  FontColor #e8eaf0
+  object {
+    BackgroundColor #162032
+    BorderColor #7ee2ff
+    FontColor #e8eaf0
+  }
+}
+stateDiagram {
+  BackgroundColor transparent
+  LineColor #7ee2ff
+  FontColor #ffffff
+  state {
+    BackgroundColor #162032
+    BorderColor #7ee2ff
+    FontColor #e8eaf0
+  }
+  arrow {
+    LineColor #e9a7ff
+    FontColor #ffffff
+  }
+}
+sequenceDiagram {
+  BackgroundColor transparent
+  LineColor #7ee2ff
+  FontColor #e8eaf0
+  participant {
+    BackgroundColor #162032
+    BorderColor #7ee2ff
+    FontColor #e8eaf0
+  }
+  actor {
+    BackgroundColor #0e1a2b
+    BorderColor #7ee2ff
+    FontColor #7ee2ff
+  }
+  arrow {
+    LineColor #e9a7ff
+    FontColor #a9ffe0
+  }
+  lifeLine {
+    LineColor #7ee2ff
+  }
+}
+componentDiagram {
+  FontColor #e8eaf0
+  LineColor #7ee2ff
+}
+deploymentDiagram {
+  LineColor #7ee2ff
+  FontColor #e8eaf0
+}
+note {
+    BackgroundColor #1e0f35
+    BorderColor #ffe066
+    FontColor #e8eaf0
+    FontSize 12
+}
+package {
+    BackgroundColor #0c1120
+    BorderColor #FFA8FD
+    FontColor #FFA8FD
+    FontSize 13
+    FontStyle bold
+}
+stereotype {
+    FontColor #ff9de2
+    FontSize 10
+    FontStyle italic
+}
+</style>
+skinparam backgroundColor transparent
+skinparam shadowing false
+skinparam ArrowColor #e9a7ff
+skinparam ArrowFontColor #a9ffe0
+skinparam actor {
+  BackgroundColor #0e1a2b
+  BorderColor #7ee2ff
+  FontColor #7ee2ff
+}
+skinparam usecase {
+  BackgroundColor #162032
+  BorderColor #e9a7ff
+  FontColor #e8eaf0
+}
+skinparam object {
+  BackgroundColor #162032
+  BorderColor #7ee2ff
+  FontColor #e8eaf0
+}
+skinparam component {
+  BackgroundColor #162032
+  BorderColor #7ee2ff
+  FontColor #e8eaf0
+}
+skinparam interface {
+  BackgroundColor #0e1a2b
+  BorderColor #ffe066
+  FontColor #e8eaf0
+}
+skinparam database {
+  BackgroundColor #1e0f35
+  BorderColor #ffe066
+  FontColor #e8eaf0
+}
+skinparam node {
+  BackgroundColor #0e1a2b
+  BorderColor #7ee2ff
+  FontColor #e8eaf0
+}
+skinparam ActivationBackgroundColor #1e0f35
+skinparam ActivationBorderColor #e9a7ff
+skinparam LifeLineBorderColor #7ee2ff
