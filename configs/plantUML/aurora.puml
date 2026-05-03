@@ -94,6 +94,30 @@ stereotype {
     FontSize 10
     FontStyle italic
 }
+deploymentDiagram {
+  LineColor #7ee2ff
+  FontColor #e8eaf0
+  node {
+    BackgroundColor #0e1a2b
+    BorderColor #7ee2ff
+    FontColor #7ee2ff
+  }
+  artifact {
+    BackgroundColor #162032
+    BorderColor #7ee2ff
+    FontColor #e8eaf0
+  }
+  database {
+    BackgroundColor #1e0f35
+    BorderColor #ffe066
+    FontColor #e8eaf0
+  }
+  component {
+    BackgroundColor #162032
+    BorderColor #e9a7ff
+    FontColor #e8eaf0
+  }
+}
 </style>
 skinparam backgroundColor transparent
 skinparam shadowing false
@@ -131,6 +155,11 @@ skinparam database {
 }
 skinparam node {
   BackgroundColor #0e1a2b
+  BorderColor #7ee2ff
+  FontColor #e8eaf0
+}
+skinparam artifact {
+  BackgroundColor #162032
   BorderColor #7ee2ff
   FontColor #e8eaf0
 }
