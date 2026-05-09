@@ -163,6 +163,12 @@ skinparam artifact {
   BorderColor #7ee2ff
   FontColor #e8eaf0
 }
+skinparam rectangle {
+  BackgroundColor #162032
+  BorderColor #7ee2ff
+  FontColor #e8eaf0
+  BorderThickness 1.5
+}
 skinparam ActivationBackgroundColor #1e0f35
 skinparam ActivationBorderColor #e9a7ff
 skinparam LifeLineBorderColor #7ee2ff
