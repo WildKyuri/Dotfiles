@@ -9,16 +9,6 @@ local dap = require("dap")
 -- Se activan automáticamente cuando cualquier LSP se conecta
 -- =========================================================
 
-local function close_lsp_floats()
-  for _, win in ipairs(vim.api.nvim_list_wins()) do
-    local config = vim.api.nvim_win_get_config(win)
-
-    if config.relative ~= "" then
-      pcall(vim.api.nvim_win_close, win, true)
-    end
-  end
-end
-
 vim.api.nvim_create_autocmd("LspAttach", {
   callback = function(event)
     local bufnr = event.buf
