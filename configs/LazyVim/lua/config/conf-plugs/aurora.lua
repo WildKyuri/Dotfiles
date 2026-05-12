@@ -4,10 +4,10 @@ M.transparency = function()
   local transparent = {
     "Normal",
     "NormalNC",
-    "NormalFloat",
-    "FloatBorder",
-    "FloatTitle",
-    "FloatFooter",
+    -- "NormalFloat",
+    -- "FloatBorder",
+    -- "FloatTitle",
+    -- "FloatFooter",
     "SignColumn",
     "EndOfBuffer",
     "FoldColumn",
@@ -32,6 +32,21 @@ M.transparency = function()
   vim.api.nvim_set_hl(0, "SpellCap", { undercurl = true, sp = "#ffaa00" })
   vim.api.nvim_set_hl(0, "SpellLocal", { undercurl = true, sp = "#aaffaa" })
   vim.api.nvim_set_hl(0, "SpellRare", { undercurl = true, sp = "#aaaaff" })
+
+  -- Flotantes
+  vim.api.nvim_set_hl(0, "NormalFloat", {
+    fg = "#cdd6f4", -- blanco suave (casi neutro, no distrae)
+  })
+  vim.api.nvim_set_hl(0, "FloatBorder", {
+    fg = "#7aa2f7", -- azul aurora suave (no tan agresivo como el rosa)
+  })
+  vim.api.nvim_set_hl(0, "FloatTitle", {
+    fg = "#bb9af7", -- púrpura aurora (destacado pero armónico)
+    bold = true,
+  })
+  vim.api.nvim_set_hl(0, "FloatFooter", {
+    fg = "#565f89", -- gris azulado, discreto
+  })
 end
 
 M.markdown = function()
