@@ -7,10 +7,10 @@ local i = ls.insert_node
 --    General Notes
 ls.add_snippets("markdown", {
   s("bash", {
-    t("```"),         -- Primera línea con ```
+    t("```"), -- Primera línea con ```
     i(1, "language"), -- Nodo de inserción para el primer texto
-    t({ "", "" }),    -- Salto de línea después del primer texto
-    i(2, "code"),     -- Nodo de inserción para el segundo texto
+    t({ "", "" }), -- Salto de línea después del primer texto
+    i(2, "code"), -- Nodo de inserción para el segundo texto
     t({ "", "```" }), -- Última línea con ```
   }),
   --tables

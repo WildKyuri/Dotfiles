@@ -12,7 +12,7 @@ return {
     "emmet_ls",
     "pyright",
     "clangd",
-    "csharp_ls",
+    -- "csharp_ls",
     "jdtls",
     "bashls",
   },
@@ -29,11 +29,11 @@ return {
 
   -- Mapeo de LSP a DAP (para debugging.lua)
   lsp_to_dap = {
-    python3 = "debugpy", -- Python
+    python3 = "debugpy",  -- Python
     csharp = "netcoredbg",
-    cpp = "codelldb", -- C/C++
+    cpp = "codelldb",     -- C/C++
     c = "cpp",
-    "js-debug-adapter", -- JavaScript/TypeScript
+    "js-debug-adapter",   -- JavaScript/TypeScript
     "java-debug-adapter", -- Java
   },
 
@@ -42,6 +42,11 @@ return {
     jdtls = {
       handlers = {
         ["language/status"] = function() end,
+        ["$/progress"] = function() end,
+      },
+    },
+    pyright = {
+      handlers = {
         ["$/progress"] = function() end,
       },
     },

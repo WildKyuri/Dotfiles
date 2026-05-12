@@ -3,7 +3,12 @@ local servers_config = require("config.lsp_servers")
 return {
   {
     "mason-org/mason.nvim",
-    opts = {},
+    opts = {
+      registries = {
+        "github:mason-org/mason-registry",
+        "github:Crashdummyy/mason-registry",
+      },
+    },
   },
   {
     "mason-org/mason-lspconfig.nvim",
@@ -11,7 +16,15 @@ return {
       ensure_installed = servers_config.lsp_servers,
     },
     dependencies = {
-      { "mason-org/mason.nvim", opts = {} },
+      {
+        "mason-org/mason.nvim",
+        opts = {
+          registries = {
+            "github:mason-org/mason-registry",
+            "github:Crashdummyy/mason-registry",
+          },
+        },
+      },
       "neovim/nvim-lspconfig",
     },
   },
