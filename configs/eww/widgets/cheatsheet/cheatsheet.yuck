@@ -1,0 +1,413 @@
+;; ── Widgets reutilizables ─────────────────────────────
+
+(defwidget key [text]
+  (label :class "keycap" :text text))
+
+(defwidget spe-key [text]
+  (label :class "keycap special-keycap" :text text))
+
+(defwidget win-key []
+  (label :class "keycap key-icon" :text " "))
+
+(defwidget plus []
+  (label :class "key-plus" :text "+"))
+
+;; ── Widgets Completo ─────────────────────────────
+
+(defwidget cheatsheet []
+  (box :class "cheatsheet-box"
+       :orientation "v"
+       :space-evenly false
+
+    ; ── Header ──────────────────────────────
+    (box :class "cs-header"
+         :orientation "h"
+         :space-evenly false
+
+      (box :hexpand true)
+
+      (label :class "cs-title"
+             :text "Cheat sheet Workspace"
+             :hexpand true
+             :halign "center")
+
+      (box :hexpand true
+           :halign "end"
+
+      (button :class "cs-close"
+              :onclick "eww close cheatsheet-popup" "✕")))
+
+    ; ── Contenido 4 columnas ────────────────
+    (box :orientation "h"
+         :space-evenly false
+         :spacing 32
+
+      ; ── Columna 1: Shell + Utilities ──────
+      ;(box :orientation "v" :space-evenly false :spacing 16 :class "cs-col"
+      (box :class "cs-col" :orientation "v" :space-evenly false :spacing 16 :hexpand false
+
+        (box :class "cs-col" :orientation "v" :space-evenly false :spacing 4
+          ; ────────────── title ────────────────
+          (label :class "cs-section" :text "Shell" :halign "start") 
+          ; ────────────── Keysmaps ────────────────
+          (box :class "cs-row" :orientation "h" :spacing 8
+            (box :class "cs-keys"
+              :orientation "h"
+              :spacing 4
+              :space-evenly false
+                (win-key)
+                (plus)
+                (key :text "/"))
+            (label :class "cs-desc" :xalign 0 :wrap true :text "Cheatsheet"))
+          (box :class "cs-row" :orientation "h" :spacing 8
+            (box :class "cs-keys"
+              :orientation "h"
+              :spacing 4
+              :space-evenly false
+                (spe-key :text "Alt")
+                (plus)
+                (key :text "Q"))
+            (label :class "cs-desc" :xalign 0 :wrap true :text "Kill Active"))
+          (box :class "cs-row" :orientation "h" :spacing 8
+            (box :class "cs-keys"
+              :orientation "h"
+              :spacing 4
+              :space-evenly false
+                (win-key)
+                (spe-key :text "Shift")
+                (plus)
+                (key :text "Q"))
+            (label :class "cs-desc" :xalign 0 :wrap true :text "Exit Hyprland"))
+          (box :class "cs-row" :orientation "h" :spacing 8
+            (box :class "cs-keys"
+              :orientation "h"
+              :spacing 4
+              :space-evenly false
+                (win-key)
+                (spe-key :text "Shift")
+                (plus)
+                (key :text "W"))
+            (label :class "cs-desc" :xalign 0 :wrap true :text "Restart Waybar"))
+          (box :class "cs-row" :orientation "h" :spacing 8
+            (box :class "cs-keys"
+              :orientation "h"
+              :spacing 4
+              :space-evenly false
+                (win-key)
+                (plus)
+                (key :text "S"))
+            ;(label :class "cs-desc" :xalign 0 :width 110 :wrap true :text "Toggle Spotify Miniplayer")))
+              (box :orientation "v" :space-evenly false
+                (label :class "cs-desc" :xalign 0 :text "Toggle Spotify")
+                (label :class "cs-desc" :xalign 0 :text "Miniplayer"))))
+
+        (box :orientation "v" :space-evenly false :spacing 4 :class "cs-no-margin"
+          ; ────────────── title ────────────────
+          (label :class "cs-section" :text "Utilities" :halign "start") ; Title
+          ; ────────────── keymaps ────────────────
+          (box :class "cs-row" :orientation "h" :spacing 8
+            (box :class "cs-keys"
+              :orientation "h"
+              :spacing 4
+              :space-evenly false
+                (win-key)
+                (plus)
+                (key :text "H"))
+            ;(label :class "cs-desc" :xalign 0 :wrap true :text "Pick Color (Hex)>>Clipboard"))
+            (box :orientation "v" :space-evenly false
+             (label :class "cs-desc" :xalign 0 :text "Pick Color")
+             (label :class "cs-desc" :xalign 0 :text "(Hex) >> Clipboard")))
+          (box :class "cs-row" :orientation "h" :spacing 8
+            (box :class "cs-keys"
+              :orientation "h"
+              :spacing 4
+              :space-evenly false
+                (win-key)
+                (spe-key :text "Shift")
+                (plus)
+                (key :text "H"))
+            (label :class "cs-desc" :xalign 0 :wrap true :text "Screeshot Clipboard"))
+          (box :class "cs-row" :orientation "h" :spacing 8
+            (box :class "cs-keys"
+              :orientation "h"
+              :spacing 4
+              :space-evenly false
+                (win-key)
+                (plus)
+                (key :text "F12"))
+            (label :class "cs-desc" :xalign 0 :wrap true :text "Screeshot File"))
+          (box :class "cs-row" :orientation "h" :spacing 8
+            (box :class "cs-keys"
+              :orientation "h"
+              :spacing 4
+              :space-evenly false
+                (win-key)
+                (plus)
+                (key :text "V"))
+            (label :class "cs-desc" :xalign 0 :wrap true :text "Clipboard history"))))
+
+      ; ── Columna 2: Window + Workspace ─────
+      ;(box :orientation "v" :space-evenly false :spacing 16 :class "cs-no-margin cs-col cs-col-per"
+      (box :class "cs-col cs-no-margin" :orientation "v" :space-evenly false :spacing 16 :hexpand false
+
+        (box :orientation "v" :space-evenly false :spacing 4
+          ; ────────────── title ────────────────
+          (label :class "cs-section" :text "Window" :halign "start") ; Title
+          ; ────────────── keymaps ────────────────
+          (box :class "cs-row" :orientation "h" :spacing 8 
+            (box :class "cs-keys"
+              :orientation "h"
+              :spacing 4
+              :space-evenly false
+                (win-key)
+                (plus)
+                (key :text "F"))
+            (label :class "cs-desc" :xalign 0 :wrap true :text "Full Screen"))
+          (box :class "cs-row" :orientation "h" :spacing 8 
+            (box :class "cs-keys"
+              :orientation "h"
+              :spacing 4
+              :space-evenly false
+                (spe-key :text "Alt")
+                (spe-key :text "Shift")
+                (plus)
+                (key :text "Q"))
+            (label :class "cs-desc" :xalign 0 :wrap true :text "Toggle Floating"))
+          (box :class "cs-row" :orientation "h" :spacing 8 
+            (box :class "cs-keys"
+              :orientation "h"
+              :spacing 4
+              :space-evenly false
+                (spe-key :text "Alt")
+                (win-key)
+                (plus)
+                (spe-key :text "←/↑/→/↓"))
+            (label :class "cs-desc" :xalign 0 :wrap true :text "Move Floating Window"))
+          (box :class "cs-row" :orientation "h" :spacing 8 
+            (box :class "cs-keys"
+              :orientation "h"
+              :spacing 4
+              :space-evenly false
+                (spe-key :text "Alt")
+                (plus)
+                (key :text "P"))
+            (label :class "cs-desc" :xalign 0 :wrap true :text "Toggle Split Direction"))
+          (box :class "cs-row" :orientation "h" :spacing 8 
+            (box :class "cs-keys"
+              :orientation "h"
+              :spacing 4
+              :space-evenly false
+                (spe-key :text "Alt")
+                (spe-key :text "Shift")
+                (plus)
+                (spe-key :text "H/L"))
+            (label :class "cs-desc" :xalign 0 :wrap true :text "Move Window Left/Right"))
+          (box :class "cs-row" :orientation "h" :spacing 8 
+            (box :class "cs-keys"
+              :orientation "h"
+              :spacing 4
+              :space-evenly false
+                (spe-key :text "Alt")
+                (spe-key :text "Shift")
+                (plus)
+                (spe-key :text "K/J"))
+            (label :class "cs-desc" :xalign 0 :wrap true :text "Move Window Up/Down"))
+          (box :class "cs-row" :orientation "h" :spacing 8 
+            (box :class "cs-keys"
+              :orientation "h"
+              :spacing 4
+              :space-evenly false
+                (spe-key :text "Alt")
+                (plus)
+                (spe-key :text "←/↑/→/↓"))
+            (label :class "cs-desc" :xalign 0 :wrap true :text "Rezise Window"))
+        (box :class "cs-row" :orientation "h" :spacing 8 
+            (box :class "cs-keys"
+              :orientation "h"
+              :spacing 4
+              :space-evenly false
+                (spe-key :text "Alt")
+                (spe-key :text "Shift")
+                (plus)
+                (key :text "#"))
+            (label :class "cs-desc" :xalign 0 :wrap true :text "Move Workspace # (0-9)"))
+          (box :class "cs-row" :orientation "h" :spacing 8 
+            (box :class "cs-keys"
+              :orientation "h"
+              :spacing 4
+              :space-evenly false
+                (spe-key :text "Alt")
+                (spe-key :text "Ctrl")
+                (spe-key :text "Shift")
+                (plus)
+                (key :text "#"))
+            (label :class "cs-desc" :xalign 0 :wrap true :text "Move Workspace # (11-20)"))
+        (box :class "cs-row" :orientation "h" :spacing 8 
+            (box :class "cs-keys"
+              :orientation "h"
+              :spacing 4
+              :space-evenly false
+                (spe-key :text "Alt")
+                (plus)
+                (key :text "s/a"))
+            ;(label :class "cs-desc" :xalign 0 :wrap true :text "Surf Between Workspaces")))
+            (box :orientation "v" :space-evenly false
+                (label :class "cs-desc" :xalign 0 :text "Surf Between")
+                (label :class "cs-desc" :xalign 0 :text "Workspaces (←/→)"))))
+
+        (box :orientation "v" :space-evenly false :spacing 4
+          ; ────────────── Title ────────────────
+          (label :class "cs-section" :text "Workspace" :halign "start") ; Title
+          ; ────────────── keymaps ────────────────
+          (box :class "cs-row" :orientation "h" :spacing 8 
+            (box :class "cs-keys"
+              :orientation "h"
+              :spacing 4
+              :space-evenly false
+                (spe-key :text "Alt")
+                (plus)
+                (key :text "#"))
+            (label :class "cs-desc" :xalign 0 :wrap true :text "Focus Workspace # (0-9)"))
+          (box :class "cs-row" :orientation "h" :spacing 8 
+            (box :class "cs-keys"
+              :orientation "h"
+              :spacing 4
+              :space-evenly false
+                (spe-key :text "Alt")
+                (spe-key :text "Ctrl")
+                (plus)
+                (key :text "#"))
+            (label :class "cs-desc" :xalign 0 :wrap true :text "Focus Workspace # (11-20)"))
+          (box :class "cs-row" :orientation "h" :spacing 8 
+            (box :class "cs-keys"
+              :orientation "h"
+              :spacing 4
+              :space-evenly false
+                (spe-key :text "Alt")
+                (plus)
+                (spe-key :text "H/L"))
+            (label :class "cs-desc" :xalign 0 :wrap true :text "Focus Left/Right"))
+          (box :class "cs-row" :orientation "h" :spacing 8 
+            (box :class "cs-keys"
+              :orientation "h"
+              :spacing 4
+              :space-evenly false
+                (spe-key :text "Alt")
+                (plus)
+                (spe-key :text "K/J"))
+            (label :class "cs-desc" :xalign 0 :wrap true :text "Focus Up/Down"))))
+
+      ; ── Columna 3: Session + Screen + Media
+      ;(box :orientation "v" :space-evenly false :spacing 16 :class "cs-col"
+      (box :class "cs-col" :orientation "v" :space-evenly false :spacing 20 :hexpand false
+
+        (box :orientation "v" :space-evenly false :spacing 4 
+          ; ────────────── title ────────────────
+          (label :class "cs-section" :text "Session" :halign "start") ; Title
+          ; ────────────── keymaps ────────────────
+          (box :class "cs-row" :orientation "h" :spacing 8 
+            (box :class "cs-keys"
+              :orientation "h"
+              :spacing 4
+              :space-evenly false
+                (win-key)
+                (plus)
+                (key :text "L"))
+            (label :class "cs-desc" :xalign 0 :wrap true :text "Lock")))
+
+        (box :orientation "v" :space-evenly false :spacing 4
+          ; ────────────── title ────────────────
+          (label :class "cs-section" :text "Spotify" :halign "start") ; Title
+          ; ────────────── keymaps ────────────────
+          (box :class "cs-row" :orientation "h" :spacing 8 
+            (box :class "cs-keys"
+              :orientation "h"
+              :spacing 4
+              :space-evenly false
+                (win-key)
+                (plus)
+                (key :text "F9"))
+            (label :class "cs-desc" :xalign 0 :wrap true :text "Next Song"))
+          (box :class "cs-row" :orientation "h" :spacing 8 
+            (box :class "cs-keys"
+              :orientation "h"
+              :spacing 4
+              :space-evenly false
+                (win-key)
+                (plus)
+                (key :text "F11"))
+            (label :class "cs-desc" :xalign 0 :wrap true :text "Previous Song"))
+          (box :class "cs-row" :orientation "h" :spacing 8 
+            (box :class "cs-keys"
+              :orientation "h"
+              :spacing 4
+              :space-evenly false
+                (win-key)
+                (plus)
+                (key :text "F10"))
+            (label :class "cs-desc" :xalign 0 :wrap true :text "Play/Pause song")))
+        
+        (box :orientation "v" :space-evenly false :spacing 4
+          ; ────────────── title ────────────────
+          (label :class "cs-section" :text "Apps" :halign "start") ; Title
+          ; ────────────── keymaps ────────────────
+          (box :class "cs-row" :orientation "h" :spacing 8
+            (box :class "cs-keys"
+              :orientation "h"
+              :spacing 4
+              :space-evenly false
+                (spe-key :text "Alt")
+                (spe-key :text "Enter"))
+            (label :class "cs-desc" :xalign 0 :wrap true :text "Kitty Terminal"))
+          (box :class "cs-row" :orientation "h" :spacing 8
+            (box :class "cs-keys"
+              :orientation "h"
+              :spacing 4
+              :space-evenly false
+                (spe-key :text "Alt")
+                (spe-key :text "space"))
+            (label :class "cs-desc" :xalign 0 :wrap true :text "Rofi"))
+          (box :class "cs-row" :orientation "h" :spacing 8
+            (box :class "cs-keys"
+              :orientation "h"
+              :spacing 4
+              :space-evenly false
+                (win-key)
+                (spe-key :text "Shift")
+                (spe-key :text "Scape"))
+            (label :class "cs-desc" :xalign 0 :wrap true :text "System Monitor"))
+          (box :class "cs-row" :orientation "h" :spacing 8
+            (box :class "cs-keys"
+              :orientation "h"
+              :spacing 4
+              :space-evenly false
+                (win-key)
+                (plus)
+                (key :text "Z"))
+            (label :class "cs-desc" :xalign 0 :wrap true :text "Zen"))
+          (box :class "cs-row" :orientation "h" :spacing 8
+            (box :class "cs-keys"
+              :orientation "h"
+              :spacing 4
+              :space-evenly false
+                (win-key)
+                (plus)
+                (key :text "D"))
+            (label :class "cs-desc" :xalign 0 :wrap true :text "Discord"))))
+    )
+  )
+)
+
+; ── Ventana ─────────────────────────────────────────────
+(defwindow cheatsheet-popup
+  :monitor 0
+  :geometry (geometry
+    :x "50%"
+    :y "50%"
+    :width "1200px"
+    :height "600px"
+    :anchor "center")
+  :stacking "overlay"
+  ;:focusable false
+  (cheatsheet))
+

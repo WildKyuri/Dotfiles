@@ -1,0 +1,71 @@
+window {
+  background: transparent;
+  font-family: "JetBrainsMono Nerd Font Mono", "JetBrains Mono";
+}
+
+.music-mini-box {
+  background-color: #050505;
+  border: 1px solid #7c3aed;
+  border-radius: 14px;
+  padding: 10px 14px;
+}
+
+.mini-cover {
+  border-radius: 10px;
+  min-width: 88px;
+  min-height: 88px;
+}
+
+.mini-info {
+  min-width: 300px;
+}
+
+.mini-title {
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.mini-artist {
+  color: #b3b3b3;
+  font-size: 12px;
+}
+
+.mini-album {
+  color: #535353;
+  font-size: 11px;
+}
+
+.mini-controls {
+  min-width: 140px;
+}
+
+.mini-btn {
+  background: transparent;
+  border: none;
+  color: #b3b3b3;
+  font-size: 18px;
+  padding: 4px;
+  border-radius: 0;
+}
+
+.mini-btn:hover {
+  color: #ffffff;
+  // background: #202020;
+  background: transparent;
+}
+
+.mini-play {
+  background: #ffffff;
+  color: #000000;
+  min-width: 36px;
+  min-height: 36px;
+  padding: 0;
+  font-size: 18px;
+  border-radius: 50%;
+}
+
+.mini-play:hover {
+  background: #ffffff;
+  color: #000000;
+}

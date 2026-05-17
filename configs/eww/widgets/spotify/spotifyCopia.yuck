@@ -1,0 +1,80 @@
+; ─── Datos de Spotify ──────────────────────────────────
+(deflisten song-title :interval "5s"
+  `playerctl --player=spotify metadata title 2>/dev/null || echo "Sin música"`)
+
+(deflisten song-artist :interval "5s"
+  `playerctl --player=spotify metadata artist 2>/dev/null || echo "─"`)
+
+(deflisten song-album :interval "5s"
+  `playerctl --player=spotify metadata album 2>/dev/null || echo ""`)
+
+(deflisten song-cover :interval "5s"
+  ;`playerctl --player=spotify metadata mpris:artUrl 2>/dev/null | xargs -I{} curl -s {} -o /tmp/eww-cover.jpg && echo "/tmp/eww-cover.jpg"`)
+  `~/.config/hypr/scripts/spotify-cover.sh`)
+
+(defpoll song-status :interval "1s"
+  `playerctl --player=spotify status 2>/dev/null || echo "Stopped"`)
+
+; ─── Widget visual tipo mini-player ─────────────────────
+(defwidget spotify-player []
+  (box :class "music-mini-box"
+       :orientation "h"
+       :space-evenly false
+       :spacing 14
+
+    ; Portada
+    (image :path song-cover
+           :image-width 88
+           :image-height 88
+           :class "mini-cover")
+
+    ; Info
+    (box :class "mini-info"
+         :orientation "v"
+         :valign "center"
+         :space-evenly false
+         :spacing 4
+      (label :class "mini-title"
+             :text song-title
+             :limit-width 34
+             :truncate true)
+      (label :class "mini-artist"
+             :text song-artist
+             :limit-width 34
+             :truncate true)
+      (label :class "mini-album"
+             :text song-album
+             :limit-width 34
+             :truncate true))
+
+    ; Controles
+    (box :class "mini-controls"
+         :orientation "h"
+         :valign "center"
+         :halign "end"
+         :space-evenly true
+         :spacing 12
+
+      (button :class "mini-btn"
+              :onclick "playerctl --player=spotify previous"
+              "󰒮")
+
+      (button :class "mini-btn mini-play"
+              :onclick "playerctl --player=spotify play-pause"
+              {song-status == "Playing" ? "󰏤" : "󰐊"})
+
+      (button :class "mini-btn"
+              :onclick "playerctl --player=spotify next"
+              "󰒭"))))
+
+; ─── Ventana ───────────────────────────────────────────
+(defwindow spotify-popup
+  :monitor 0
+  :geometry (geometry
+    :x "20px"
+    :y "20px"
+    :width "260px"
+    :anchor "top right")
+  :stacking "overlay"
+  :focusable false
+  (spotify-player))

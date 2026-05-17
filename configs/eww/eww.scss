@@ -1,0 +1,9 @@
+@import "widgets/spotify/spotify.scss";
+@import "widgets/cheatsheet/cheatsheet.scss";
+
+button {
+  border: none;
+  outline: none;
+  box-shadow: none;
+  -gtk-outline-radius: 0;
+}

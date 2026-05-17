@@ -1,0 +1,67 @@
+window {
+  background: transparent;
+}
+
+.music-box {
+  background-color: #121212;
+  border-radius: 16px;
+  padding: 16px;
+  border: 1px solid #282828;
+}
+
+.cover {
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px;
+  min-height: 228px;
+  min-width: 228px;
+}
+
+.song-title {
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.song-artist {
+  color: #b3b3b3;
+  font-size: 12px;
+}
+
+.song-album {
+  color: #535353;
+  font-size: 11px;
+}
+
+.controls {
+  margin-top: 4px;
+}
+
+.ctrl-btn {
+  min-width: 38px;
+  min-height: 32px;
+  padding: 0;
+  background: #282828;
+  border: none;
+  border-radius: 999px;
+  color: #b3b3b3;
+  font-size: 15px;
+}
+
+.ctrl-btn:hover {
+  background: #333333;
+  color: #ffffff;
+}
+
+.ctrl-btn.play {
+  min-width: 48px;
+  min-height: 32px;
+  padding: 0;
+  background: #1db954;
+  color: #000000;
+  font-size: 16px;
+}
+
+.ctrl-btn.play:hover {
+  background: #1ed760;
+}

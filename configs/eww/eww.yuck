@@ -1,0 +1,2 @@
+(include "widgets/spotify/spotify.yuck")
+(include "widgets/cheatsheet/cheatsheet.yuck")

@@ -1,0 +1,80 @@
+; ─── Datos de Spotify ──────────────────────────────────
+
+(deflisten song-title
+  "~/.config/hypr/scripts/spotify/spotify-title.sh")
+
+(deflisten song-artist
+  "~/.config/hypr/scripts/spotify/spotify-artist.sh")
+
+(deflisten song-album
+  "~/.config/hypr/scripts/spotify/spotify-album.sh.sh")
+
+(deflisten song-cover
+  "~/.config/hypr/scripts/spotify/spotify-cover-listen.sh")
+
+(deflisten song-status
+  "~/.config/hypr/scripts/spotify/spotify-status.sh")
+
+; ─── Widget visual tipo mini-player ─────────────────────
+(defwidget spotify-player []
+  (box :class "music-mini-box"
+       :orientation "h"
+       :space-evenly false
+       :spacing 14
+
+    ; Portada
+    (image :path song-cover
+           :image-width 88
+           :image-height 88
+           :class "mini-cover")
+
+    ; Info
+    (box :class "mini-info"
+         :orientation "v"
+         :valign "center"
+         :space-evenly false
+         :spacing 4
+      (label :class "mini-title"
+             :text song-title
+             :limit-width 34
+             :truncate true)
+      (label :class "mini-artist"
+             :text song-artist
+             :limit-width 34
+             :truncate true)
+      (label :class "mini-album"
+             :text song-album
+             :limit-width 34
+             :truncate true))
+
+    ; Controles
+    (box :class "mini-controls"
+         :orientation "h"
+         :valign "center"
+         :halign "end"
+         :space-evenly true
+         :spacing 12
+
+      (button :class "mini-btn"
+              :onclick "playerctl --player=spotify previous"
+              "󰒮")
+
+      (button :class "mini-btn mini-play"
+              :onclick "playerctl --player=spotify play-pause"
+              {song-status == "Playing" ? "󰏤" : "󰐊"})
+
+      (button :class "mini-btn"
+              :onclick "playerctl --player=spotify next"
+              "󰒭"))))
+
+; ─── Ventana ───────────────────────────────────────────
+(defwindow spotify-popup
+  :monitor 0
+  :geometry (geometry
+    :x "20px"
+    :y "20px"
+    :width "260px"
+    :anchor "top right")
+  :stacking "overlay"
+  :focusable false
+  (spotify-player))

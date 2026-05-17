@@ -1,0 +1,88 @@
+# wiremix.toml
+# Tema personalizado que hace match con el desktop oscuro
+
+theme = "desktop"
+
+# ── Tema personalizado ──────────────────────────────────────────
+[themes.desktop]
+
+# Símbolo del dispositivo por default (Input/Output tabs)
+default_device = { fg = "#9878b8" }
+
+# Símbolo del stream por default (Playback/Recording tabs)
+default_stream = { fg = "#9878b8" }
+
+# Indicador de selección
+selector = { fg = "#8878aa", add_modifier = "BOLD" }
+
+# Nombre de tab en el menú
+tab = { fg = "#6c6680" }
+
+# Nombre del tab seleccionado
+tab_selected = { fg = "#c8b8e8", add_modifier = "BOLD" }
+
+# Símbolos que rodean el tab seleccionado [ ]
+tab_marker = { fg = "#8878aa" }
+
+# Indicador de más items arriba/abajo
+list_more = { fg = "#444455" }
+
+# Nombre del nodo (app/dispositivo)
+node_title = { fg = "#9090a8" }
+
+# Target seleccionado del nodo
+node_target = { fg = "#8878aa" }
+
+# Porcentaje de volumen
+volume = { fg = "#9090a8" }
+
+# Barra de volumen vacía
+volume_empty = { fg = "#2a2840" }
+
+# Barra de volumen llena
+volume_filled = { fg = "#8878aa" }
+
+# Peak meter apagado
+meter_inactive = { fg = "#2a2840" }
+
+# Peak meter activo
+meter_active = { fg = "#9878b8" }
+
+# Peak meter sobrecargado (> 0 dB)
+meter_overload = { fg = "#f38ba8" }
+
+# Centro del meter apagado
+meter_center_inactive = { fg = "#2a2840" }
+
+# Centro del meter activo
+meter_center_active = { fg = "#c8b8e8" }
+
+# Nombre del dispositivo en la tab de Configuración
+config_device = { fg = "#9090a8" }
+
+# Perfil seleccionado en Configuración
+config_profile = { fg = "#c8b8e8" }
+
+# Ícono de dropdown ▼
+dropdown_icon = { fg = "#8878aa" }
+
+# Borde del dropdown
+dropdown_border = { fg = "#3a3455" }
+
+# Item en dropdown
+dropdown_item = { fg = "#9090a8" }
+
+# Item seleccionado en dropdown
+dropdown_selected = { fg = "#c8b8e8", bg = "#1c1a24", add_modifier = "BOLD" }
+
+# Más items en dropdown
+dropdown_more = { fg = "#444455" }
+
+# Borde del menú de ayuda
+help_border = { fg = "#3a3455" }
+
+# Item en el menú de ayuda
+help_item = { fg = "#9090a8" }
+
+# Más items en el menú de ayuda
+help_more = { fg = "#444455" }
