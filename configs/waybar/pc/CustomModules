@@ -9,7 +9,8 @@
     },
     "escape": true,
     // "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null", // Script in resources folder
-    "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null", // Filter player based on name
+    "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null", // Filter player based on name,
+    "on-click": "eww open --toggle spotify-popup",
   },
 
   "custom/power": {
@@ -29,7 +30,6 @@
     "format": " ",
     "tooltip-format": "ArchLinux",
   },
-
   "cpu": {
     "format": " {usage}%",
     "tooltip": true,
@@ -40,6 +40,7 @@
     "exec": "/home/ky/.config/hypr/scripts/cpu-usage.sh",
     "markup": true,
     "interval": 5,
+    "on-click": "kitty --class btop-popup --title btop btop",
   },
   "custom/cpu_temp": {
     "tooltip": false,

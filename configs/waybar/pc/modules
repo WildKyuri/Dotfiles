@@ -108,6 +108,6 @@
         ""
       ],
     },
-    "on-click": "pavucontrol",
+    "on-click": "kitty --class wiremix-popup -e wiremix"
   },
 }
