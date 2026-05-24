@@ -1,0 +1,86 @@
+{
+  "custom/menu": {
+    "format": "󰅃",
+    "rotate": 90,
+  },
+  "custom/notification": {
+    "tooltip": false,
+    "rotate": 0,
+    "format": "{icon}",
+    "format-icons": {
+      "notification": "󱅫",
+      // "none": "󰂚",
+      // "dnd-notification": "󱅫",
+      // "dnd-none": " ",
+      // "inhibited-notification": "󱅫",
+      // "inhibited-none": "󰂚",
+      // "dnd-inhibited-notification": "󱅫",
+      // "notification": "<span foreground='red'><sup></sup></span>",
+      "none": "",
+      "dnd-notification": "<span foreground='red'><sup></sup></span>",
+      "dnd-none": " ",
+      "inhibited-notification": "<span foreground='red'><sup></sup></span>",
+      "inhibited-none": "",
+      "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
+      "dnd-inhibited-none": " "
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click-right": "swaync-client -d -sw",
+    "on-click": "swaync-client -t -sw",
+    "escape": true
+  },
+  "custom/spotify": {
+    "format": "{icon} {text}",
+    "tooltip": "{text}",
+    "return-type": "json",
+    "max-length": 40,
+    "format-icons": {
+      "spotify": "",
+      "default": "🎜"
+    },
+    "escape": true,
+    "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null", // Filter player based on name,
+    "on-click": "eww open --toggle spotify-popup"
+  },
+  "custom/systemICON": {
+    "format": " ",
+    "tooltip-format": "ArchLinux",
+  },
+  "custom/power": {
+    "format": "⏻ ",
+    "tooltip": false,
+    "menu": "on-click",
+    "menu-file": "$HOME/.config/waybar/power_menu.xml", // Menu file in resources folder
+    "menu-actions": {
+      "shutdown": "shutdown",
+      "reboot": "reboot",
+      "suspend": "systemctl suspend",
+      "hibernate": "systemctl hibernate",
+    },
+  },
+  "custom/headset-battery": {
+    "exec": "$HOME/.config/hypr/scripts/battery-bluetooth.sh",
+    "exec-if": "upower -i /org/freedesktop/UPower/devices/headset_dev_98_67_2E_54_D9_E6 | grep -q percentage",
+    "format": "{}",
+    "return-type": "json",
+    "tooltip": true,
+    "interval": 5
+  },
+  "custom/cpu": {
+    "tooltip": true,
+    "exec": "/home/ky/.config/hypr/scripts/cpu-usage-tooltip.sh",
+    "return-type": "json",
+    "format": "{text}",
+    "interval": 5,
+    "on-click": "kitty --class btop-popup --title btop btop"
+  },
+  "custom/gpu": {
+    "exec": "$HOME/.config/hypr/scripts/gpu-usage-tooltip.sh",
+    "format": "{}",
+    "return-type": "json",
+    "tooltip": true,
+    "interval": 5
+  },
+}

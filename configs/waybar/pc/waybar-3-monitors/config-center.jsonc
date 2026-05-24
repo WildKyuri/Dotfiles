@@ -1,0 +1,74 @@
+{
+  "output": "DP-1",
+  "layer": "top",
+  "position": "top",
+  "mod": "dock",
+  "margin-left": 10,
+  "margin-right": 10,
+  "margin-top": 7,
+  "margin-bottom": 0,
+  "exclusive": true,
+  "passthrough": false,
+  "gtk-layer-shell": true,
+  "reload_style_on_change": true,
+  "include": [
+    "~/.config/waybar/modules-center/modules",
+    "~/.config/waybar/modules-center/CustomModules",
+  ],
+  "modules-left": [
+    "custom/systemICON",
+    "clock",
+    "custom/notification",
+    "hyprland/workspaces",
+  ],
+  "modules-center": ["custom/spotify", "hyprland/window"],
+  "modules-right": [
+    "group/tray_menu",
+    "network",
+    "group/custom_audio",
+    "group/info_menu",
+    "custom/power",
+  ],
+  "group/tray_menu": {
+    "orientation": "horizontal",
+    "drawer": {
+      "transition-duration": 600,
+      "children-class": "not-power",
+      "transition-to-left": true,
+    },
+    "modules": ["custom/menu", "tray"],
+  },
+  "group/expand-3": {
+    "orientation": "horizontal",
+    "drawer": {
+      "transition-duration": 600,
+      "children-class": "not-power",
+      "transition-to-left": true,
+      "click-to-reveal": true,
+    },
+    "modules": ["pulseaudio", "pulseaudio/slider"],
+  },
+  "group/info_menu": {
+    "orientation": "horizontal",
+    "drawer": {
+      "transition-duration": 600,
+      "children-class": "custom/cpu",
+      "transition-to-left": true,
+    },
+    "modules": [
+      // "cpu",
+      "custom/cpu",
+      "memory",
+      "custom/gpu",
+    ],
+  },
+  "group/custom_audio": {
+    "orientation": "horizontal",
+    "drawer": {
+      "transition-duration": 500,
+      "children-class": "pulseaudio",
+      "transition-left-to-right": true,
+    },
+    "modules": ["pulseaudio", "custom/headset-battery"],
+  },
+}

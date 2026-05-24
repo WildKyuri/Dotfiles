@@ -1,0 +1,109 @@
+{
+  "custom/menu": {
+    "format": "󰅃",
+    "rotate": 0
+  },
+  "custom/notification": {
+    "tooltip": false,
+    "rotate": 0,
+    "format": "{icon}",
+    "format-icons": {
+      "notification": "󱅫",
+      // "none": "󰂚",
+      // "dnd-notification": "󱅫",
+      // "dnd-none": " ",
+      // "inhibited-notification": "󱅫",
+      // "inhibited-none": "󰂚",
+      // "dnd-inhibited-notification": "󱅫",
+      // "notification": "<span foreground='red'><sup></sup></span>",
+      "none": "",
+      "dnd-notification": "<span foreground='red'><sup></sup></span>",
+      "dnd-none": " ",
+      "inhibited-notification": "<span foreground='red'><sup></sup></span>",
+      "inhibited-none": "",
+      "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
+      "dnd-inhibited-none": " "
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click-right": "swaync-client -d -sw",
+    "on-click": "swaync-client -t -sw",
+    "escape": true
+  },
+  "custom/spotify": {
+    "format": "{icon} {text}",
+    "tooltip": "{text}",
+    "return-type": "json",
+    "max-length": 25,
+    "rotate": 270,
+    "format-icons": {
+      "spotify": "",
+      "default": "🎜"
+    },
+    "escape": true,
+    "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null", // Filter player based on name,
+    "on-click": "eww open --toggle spotify-popup"
+  },
+  "custom/systemICON": {
+    "format": " ",
+    "tooltip-format": "ArchLinux",
+  },
+  "custom/power": {
+    "format": "⏻ ",
+    "tooltip": false,
+    "menu": "on-click",
+    "menu-file": "$HOME/.config/waybar/power_menu.xml", // Menu file in resources folder
+    "menu-actions": {
+      "shutdown": "shutdown",
+      "reboot": "reboot",
+      "suspend": "systemctl suspend",
+      "hibernate": "systemctl hibernate",
+    },
+  },
+  "custom/headset-battery": {
+    "exec": "$HOME/.config/hypr/scripts/battery-bluetooth.sh",
+    "exec-if": "upower -i /org/freedesktop/UPower/devices/headset_dev_98_67_2E_54_D9_E6 | grep -q percentage",
+    "format": "{}",
+    "return-type": "json",
+    "tooltip": true,
+    "interval": 5
+  },
+  "custom/cpu": {
+    "tooltip": true,
+    "exec": "/home/ky/.config/hypr/scripts/cpu-usage-tooltip.sh",
+    "return-type": "json",
+    "format": "{text}",
+    "interval": 5,
+    "on-click": "kitty --class btop-popup --title btop btop"
+  },
+  "custom/gpu": {
+    "exec": "$HOME/.config/hypr/scripts/gpu-usage-tooltip.sh",
+    "format": "{}",
+    "return-type": "json",
+    "tooltip": true,
+    "interval": 5
+  },
+  "custom/wallchange": {
+    "format": "{}",
+    "rotate": 0,
+    "exec": "echo ; echo 󰆊 switch wallpaper",
+    "on-click": "swww img --transition-type grow --transition-pos 0.071,0.988 --transition-step 255 --transition-fps 60 /home/anik/Downloads/skyway.jpg",
+    "on-click-right": "swww img --transition-type grow --transition-pos 0.071,0.988 --transition-step 255 --transition-fps 60 /home/anik/Downloads/cloud.png",
+    "on-click-middle": "swww img --transition-type grow --transition-pos 0.071,0.988 --transition-step 255 --transition-fps 60 /home/anik/Downloads/gradient.jpg",
+    "on-scroll-up": "swww img --transition-type grow --transition-pos 0.071,0.988 --transition-step 255 --transition-fps 60 /home/anik/Downloads/torvalds.png",
+    "on-scroll-down": "swww img --transition-type grow --transition-pos 0.071,0.988 --transition-step 255 --transition-fps 60 /home/anik/Downloads/night.png",
+    "interval": 86400,
+    "tooltip": true
+  },
+  "custom/cliphist": {
+    "format": "{}",
+    "rotate": 0,
+    "exec": "echo ; echo 󰅇 clipboard history",
+    "on-click": "sleep 0.1 && cliphist.sh c",
+    "on-click-right": "sleep 0.1 && cliphist.sh d",
+    "on-click-middle": "sleep 0.1 && cliphist.sh w",
+    "interval": 86400,
+    "tooltip": true
+  },
+}

@@ -1,0 +1,274 @@
+* {
+  font-family: "JetBrains Mono Nerd Font";
+  /*font-family: "JetBrainsMono Nerd Font";*/
+  font-weight: bold;
+  font-size: 15px;
+}
+
+window#waybar {
+  background: rgba(21, 21, 21, 0.68);
+  /*background: transparent;*/
+  /*  border-radius: 15px; */
+  /*  border: 2px solid #124323; */
+  /* border: 0px solid #A1BDCE; */
+  /* border: 3px solid rgba(254, 207, 255, 0.85); */
+  /* border: 3px solid rgba(90, 40, 140, 0.85); */
+  /* border: 3px solid #fecfff; */
+  /* border: 3px solid rgba(26, 27, 38, 0); */
+  border-radius: 12px;
+  border: 3px solid rgba(255, 255, 255, 0.1);
+}
+
+tooltip {
+  background: #1d2021;
+  /* color: #fbf1c7; */
+  font-size: 13px;
+  border-radius: 7px;
+  border: 2px solid #101a24;
+}
+
+#workspaces {
+  font-weight: normal;
+  background: rgba(23, 23, 23, 0);
+  color: #2f302d;
+  box-shadow: none;
+  text-shadow: none;
+  border-radius: 9px;
+  transition: 0.2s ease;
+  padding-left: 4px;
+  padding-right: 7px;
+  padding-top: 1px;
+  margin-top: 5px;
+}
+
+#workspaces button {
+  font-weight: normal;
+  background: rgba(23, 23, 23, 0);
+  color: #b1b2bd;
+  box-shadow: none;
+  text-shadow: none;
+  border-radius: 9px;
+  transition: 0.2s ease;
+  padding-left: 0px;
+  padding-right: 4px;
+  margin-right: -4px;
+  margin-top: -10px;
+  /* animation: ws_normal 20s ease-in-out 1; */
+}
+
+#workspaces button:first-child {
+  margin-top: -6px;
+}
+
+#workspaces button.active {
+  /* background-image: url("/home/anik/Documents/bar1.png");*/
+  color: #cccedb;
+  font-weight: normal;
+  transition: all 0.3s ease;
+  padding-left: 0px;
+  padding-right: 4px;
+  /*  transition: all 0.4s cubic-bezier(.55,0.68,.48,1.682); */
+}
+
+#workspaces button:hover {
+  background: none;
+  color: #7daea3;
+  font-weight: normal;
+  animation: ws_hover 20s ease-in-out 1;
+  transition: all 0.5s cubic-bezier(0.55, -0.68, 0.48, 1.682);
+}
+
+#taskbar button {
+  box-shadow: none;
+  text-shadow: none;
+  font-size: 4px;
+  padding: 0px;
+  border-radius: 9px;
+  margin-top: 3px;
+  margin-bottom: 3px;
+  margin-left: 3px;
+  margin-right: 3px;
+  /* color: @wb-color; */
+  animation: tb_normal 20s ease-in-out 1;
+}
+
+#taskbar button.active {
+  background: #c8c8c8;
+  color: #c8c8c8;
+  margin-left: 10px;
+  margin-right: 10px;
+  padding-left: 0px;
+  padding-right: 0px;
+  animation: tb_active 20s ease-in-out 1;
+  transition: all 0.4s cubic-bezier(0.55, -0.68, 0.48, 1.682);
+  min-height: 3px;
+  margin-top: 3px;
+  margin-bottom: 3px;
+  border-radius: 3px;
+}
+
+#taskbar button:hover {
+  margin-top: 3px;
+  margin-bottom: 3px;
+  margin-left: 10px;
+  margin-right: 10px;
+  padding-left: 0px;
+  padding-right: 0px;
+  min-height: 3px;
+  border-radius: 3px;
+  animation: tb_hover 20s ease-in-out 1;
+  transition: all 0.3s cubic-bezier(0.55, -0.68, 0.48, 1.682);
+}
+
+#custom-cliphist {
+  color: #e6e7e7;
+  background: #161320;
+  opacity: 1;
+  margin: 4px 0px 4px 0px;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#idle_inhibitor {
+  color: #24966e;
+  /* background: @bar-bg; */
+  opacity: 1;
+  margin: 4px 0px 4px 0px;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#clock {
+  color: #cccedb;
+  font-size: 13px;
+  font-weight: 900;
+  /* font-family: "CaskaydiaCove Nerd Font Mono"; */
+  font-family: "JetBrains Mono Nerd Font";
+  background: rgba(23, 23, 23, 0);
+  opacity: 1;
+  margin: 3px -13px 3px -13px;
+  padding-left: 10px;
+  padding-right: 9px;
+  padding-top: 5px;
+  padding-bottom: 3px;
+  border: none;
+}
+
+#pulseaudio {
+  font-weight: normal;
+  font-size: 11px;
+  color: #cccedb;
+  background: rgba(22, 19, 32, 0);
+  opacity: 1;
+  margin: 2px 0px;
+  padding: 2px 5px 0px 0px;
+}
+
+#memory {
+  font-size: 16px;
+  color: #cccedb;
+  margin: 3px 0px 6px 0px;
+}
+
+#custom-gpuinfo,
+#custom-keybindhint,
+#language {
+  font-weight: normal;
+  font-size: 22px;
+  color: #cccedb;
+}
+
+#network {
+  color: #cccedb;
+  font-weight: normal;
+  font-size: 18px;
+  /* margin-left: -2px; */
+  padding-left: 5px;
+  margin-left: 2px;
+}
+
+#custom-gpu {
+  color: #cccedb;
+  font-weight: normal;
+  font-size: 16px;
+  padding-left: 6px;
+}
+
+#custom-cpu {
+  color: #cccedb;
+  font-weight: normal;
+  font-size: 12px;
+  /* margin-left: -2px; */
+  padding-left: 5px;
+  margin-left: 2px;
+}
+
+#custom-notification {
+  padding: 10px 1px 0px 1px;
+}
+
+#custom-spotify {
+  color: #cccedb;
+  background: rgba(23, 23, 23, 0);
+  font-size: 12px;
+}
+
+#custom-cpu {
+  font-size: 16px;
+  padding-left: 4px;
+}
+
+#custom-menu {
+  color: #cccedb;
+  background: rgba(23, 23, 23, 0);
+  margin: 0px 0px 0px 0px;
+  padding-left: 1px;
+  padding-right: 1px;
+  opacity: 0.8;
+}
+
+#tray {
+  padding: 0px;
+  margin-bottom: 5px;
+}
+
+#custom-updates,
+#custom-wallchange,
+#custom-wbar,
+#window {
+  font-family: "CaskaydiaCove Nerd Font Mono";
+  color: #7daea3;
+  padding-left: 5px;
+}
+
+/* Style for launchers */
+
+#custom-notification {
+  font-family: "JetBrains Mono Nerd Font";
+  font-size: 18px;
+  color: #cccedb;
+  margin-left: -2px;
+  margin-top: -4px;
+  padding-bottom: 12px;
+  padding-right: 1px;
+}
+
+#custom-systemICON {
+  color: #cccedb;
+  margin-top: 6px;
+  padding: 2px 2px 0px 6px;
+}
+
+#custom-power {
+  color: #cccedb;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  padding: 2px 2px 2px 8px;
+}
+
+#custom-headset-battery {
+  color: #cccedb;
+  font-size: 15px;
+  padding-right: 8px;
+  margin-bottom: 5px;
+}
