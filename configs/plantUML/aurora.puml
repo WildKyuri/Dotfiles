@@ -117,6 +117,20 @@ deploymentDiagram {
     BorderColor #e9a7ff
     FontColor #e8eaf0
   }
+  activityDiagram {
+    BackgroundColor transparent
+    LineColor #7ee2ff
+    FontColor #e8eaf0
+    activity {
+      BackgroundColor #162032
+      BorderColor #7ee2ff
+      FontColor #e8eaf0
+    }
+    arrow {
+      LineColor #7ee2ff
+      FontColor #e8eaf0
+    }
+  }
 }
 </style>
 skinparam backgroundColor transparent
@@ -172,3 +186,17 @@ skinparam rectangle {
 skinparam ActivationBackgroundColor #1e0f35
 skinparam ActivationBorderColor #e9a7ff
 skinparam LifeLineBorderColor #7ee2ff
+skinparam TitleFontColor #e8eaf0
+skinparam activity {
+  BackgroundColor #162032
+  BorderColor #7ee2ff
+  FontColor #e8eaf0
+  StartColor #e9a7ff
+  EndColor #e9a7ff
+  BarColor #7ee2ff
+}
+skinparam partition {
+  BackgroundColor #0e1a2b
+  BorderColor #7ee2ff
+  FontColor #7ee2ff
+}
