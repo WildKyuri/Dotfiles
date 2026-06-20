@@ -47,6 +47,7 @@ alias ls='lsd --group-dirs=first'
 alias icat='kitty +kitten icat'
 alias fdMachines='/opt/htbmachines/htbmachines.sh'
 alias yt='/opt/yt-dlp/yt.sh'
+alias pdfx='/opt/pdfs/pdfs.sh'
 alias py='python3'
 alias nv='nvim'
 alias ya='yazi'
@@ -85,7 +86,7 @@ directories=(
     "/opt/nvim/bin"
     "/opt/htbmachines/htbmachines.sh"
     "/opt/yt-dlp/yt.sh"
-    # "/opt/pdfs/"
+    "/opt/pdfs/"
     # Añade más directorios si quieres
 )
 
@@ -117,3 +118,4 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 source ~/powerlevel10k/powerlevel10k.zsh-theme
+export PATH="$HOME/.local/bin:$PATH"
