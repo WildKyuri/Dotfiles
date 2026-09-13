@@ -15,30 +15,6 @@ vim.diagnostic.config({
 -- Disminuye el tiempo para que CursorHold se dispare más rápido (popup flotante)
 vim.o.updatetime = 300
 
--- Función para configurar keymaps al adjuntar el cliente LSP
--- local on_attach = function(client, bufnr)
---   local function buf_set_keymap(...)
---     vim.api.nvim_buf_set_keymap(bufnr, ...)
---   end
---   local opts = { noremap = true, silent = true }
---
---   -- Keybindings para LSP (mostrar informacion)
---   buf_set_keymap("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
---
---   -- Puedes agregar más keybindings aquí según tus necesidades
---   vim.api.nvim_create_autocmd("CursorHold", {
---     buffer = bufnr,
---     callback = function()
---       vim.diagnostic.open_float(nil, {
---         focusable = false,
---         border = "rounded",
---         source = "always",
---         prefix = " ",
---       })
---     end,
---   })
--- end
-
 local on_attach = function(client, bufnr)
   vim.api.nvim_create_autocmd("CursorHold", {
     buffer = bufnr,

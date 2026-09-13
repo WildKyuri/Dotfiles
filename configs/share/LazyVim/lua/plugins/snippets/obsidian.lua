@@ -64,12 +64,12 @@ ls.add_snippets("markdown", {
   -- Plant UML
   s("plantuml", {
     t("```plantuml"),
-    t({ "", "!include /home/kyuri/All-in/obsidian/_assets/aurora.puml" }),
+    t({ "", "@startuml" }),
+    t({ "", "" }),
     t({
       "",
       "!include https://raw.githubusercontent.com/WildKyuri/Dotfiles/refs/heads/main/configs/plantUML/aurora.puml",
     }),
-    t({ "", "@startuml" }),
     t({ "", "" }),
     i(1, "contenido"),
     t({ "", "@enduml" }),

@@ -28,7 +28,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
     -- signature help
     keymap.set("n", "K", vim.lsp.buf.hover, lsp_opts("lsp: hover documentation"))
 
-    keymap.set({ "n", "i" }, "<leader>sdd", function()
+    keymap.set({ "n", "i" }, "<leader>slh", function()
       vim.lsp.buf.signature_help()
     end, lsp_opts("lsp: signature help"))
 

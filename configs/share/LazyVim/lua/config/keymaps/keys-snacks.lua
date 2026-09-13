@@ -69,7 +69,7 @@ keymap.set("n", "<Leader>gs", function()
   })
 end, opts)
 
-keymap.set("n", "<leader>gsd", function()
+keymap.set("n", "<leader>gd", function()
   require("gitsigns").diffthis()
 end, { desc = "Gitsigns: diffthis" })
 

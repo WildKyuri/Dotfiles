@@ -15,6 +15,7 @@ return {
     -- "csharp_ls",
     "jdtls",
     "bashls",
+    "arduino_language_server",
   },
 
   null_servers = {
@@ -58,7 +59,20 @@ return {
         "javascript",
         "javascriptreact",
         "typescriptreact",
-        "php", -- ✅ activa Emmet en PHP
+        "php", -- activa Emmet en PHP
+      },
+    },
+    arduino_language_server = {
+      cmd = {
+        "arduino-language-server",
+        "-clangd",
+        "/usr/bin/clangd",
+        "-cli",
+        "/usr/bin/arduino-cli",
+        "-cli-config",
+        vim.fn.expand("~/.arduino15/arduino-cli.yaml"),
+        "-fqbn",
+        "arduino:avr:uno",
       },
     },
   },
