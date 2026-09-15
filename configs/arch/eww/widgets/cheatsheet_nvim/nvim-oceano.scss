@@ -1,0 +1,116 @@
+window {
+  font-family: "JetBrainsMono Nerd Font Mono";
+}
+
+.nv-cheatsheet-box {
+  background: linear-gradient(145deg,
+      #020d10 0%,
+      #031520 35%,
+      #041c2a 60%,
+      #031018 100%);
+  border-radius: 14px;
+  padding: 30px 40px 30px 58px;
+  border: 1px solid rgba(10, 160, 180, 0.2);
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.85),
+    0 0 60px rgba(5, 130, 160, 0.08),
+    0 20px 56px rgba(0, 0, 0, 0.95),
+    inset 0 1px 0 rgba(0, 180, 200, 0.06),
+    inset 0 80px 120px rgba(4, 30, 50, 0.4);
+  min-height: 580px;
+}
+
+.nv-cs-header {
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(0, 180, 210, 0.15);
+  margin-bottom: 4px;
+}
+
+.nv-cs-title {
+  color: #6ed8ec;
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 0.04em;
+  text-shadow:
+    0 0 16px rgba(0, 200, 230, 0.4),
+    0 0 40px rgba(0, 160, 190, 0.15);
+}
+
+.nv-cs-close {
+  background: transparent;
+  border: none;
+  color: #1a3a45;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 0 4px;
+}
+
+.nv-cs-close:hover {
+  color: #f38ba8;
+  text-shadow: 0 0 8px rgba(243, 139, 168, 0.5);
+}
+
+.nv-cs-section {
+  color: #28c0d8;
+  font-size: 11px;
+  font-weight: bold;
+  margin-bottom: 6px;
+  margin-top: 4px;
+  letter-spacing: 0.05em;
+  text-shadow: 0 0 8px rgba(0, 200, 230, 0.35);
+}
+
+.nv-cs-row {
+  padding: 1px 0;
+  min-width: 280px;
+}
+
+.nv-cs-desc {
+  color: #5a9aaa;
+  font-size: 11px;
+}
+
+.nv-keycap {
+  background: linear-gradient(180deg, #081e2a 0%, #051318 100%);
+  border: 1px solid rgba(0, 170, 200, 0.32);
+  border-radius: 5px;
+  padding: 2px 7px;
+  box-shadow:
+    inset 0 1px 0 rgba(0, 220, 255, 0.08),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.65),
+    0 2px 0 rgba(0, 0, 0, 0.85),
+    0 0 8px rgba(0, 150, 190, 0.08);
+  color: #6ab8cc;
+  font-size: 11px;
+  min-width: 15px;
+  min-height: 20px;
+}
+
+.nv-keycap.nv-special-keycap {
+  min-width: 35px;
+}
+
+.nv-key-plus {
+  color: #0f2e3a;
+}
+
+.nv-key-icon {
+  color: #1a90b0;
+  text-shadow: 0 0 6px rgba(0, 160, 200, 0.4);
+}
+
+.nv-cs-no-margin {
+  margin-bottom: 0px;
+}
+
+.nv-cs-keys {
+  min-width: 140px;
+}
+
+.nv-cs-col {
+  min-width: 260px;
+}
+
+.nv-cs-col.nv-cs-col-per {
+  min-width: 100px;
+}

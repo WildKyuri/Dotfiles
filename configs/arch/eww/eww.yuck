@@ -1,2 +1,3 @@
 (include "widgets/spotify/spotify.yuck")
 (include "widgets/cheatsheet/cheatsheet.yuck")
+(include "widgets/cheatsheet_nvim/nvim.yuck")

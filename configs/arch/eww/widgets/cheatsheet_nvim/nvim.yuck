@@ -1,0 +1,471 @@
+;; ── Widgets reutilizables ─────────────────────────────
+
+(defwidget nv-key [text]
+  (label :class "nv-keycap" :text text))
+
+(defwidget nv-spe-key [text]
+  (label :class "nv-keycap nv-special-keycap" :text text))
+
+(defwidget nv-win-key []
+  (label :class "nv-keycap nv-key-icon" :text " "))
+
+(defwidget nv-plus []
+  (label :class "nv-key-plus" :text "+"))
+
+;; ── Widget Completo ───────────────────────────────────
+
+(defwidget nvim-cheatsheet []
+  (box :class "nv-cheatsheet-box"
+       :orientation "v"
+       :space-evenly false
+
+    ; ── Header ──────────────────────────────
+    (box :class "nv-cs-header"
+         :orientation "h"
+         :space-evenly false
+      (box :hexpand true)
+      (label :class "nv-cs-title"
+             :text "Cheat sheet Neovim"
+             :hexpand true
+             :halign "center")
+      (box :hexpand true
+           :halign "end"
+        (button :class "nv-cs-close"
+                :onclick "eww close nvim-cheatsheet-popup" "✕")))
+
+    ; ── Contenido 4 columnas ────────────────
+    (box :orientation "h"
+         :space-evenly false
+         :spacing 32
+
+      ; ── Columna 1: Navegación + Archivo + Símbolos + Pestañas ──
+      (box :class "nv-cs-col" :orientation "v" :space-evenly false :spacing 16 :hexpand false
+
+        (box :orientation "v" :space-evenly false :spacing 4
+          (label :class "nv-cs-section" :text "Navegación" :halign "start")
+          (box :class "nv-cs-row" :orientation "h" :spacing 8
+            (box :class "nv-cs-keys" :orientation "h" :spacing 4 :space-evenly false
+              (nv-key :text "s"))
+            (label :class "nv-cs-desc" :xalign 0 :text "Salto rápido visual"))
+          (box :class "nv-cs-row" :orientation "h" :spacing 8
+            (box :class "nv-cs-keys" :orientation "h" :spacing 4 :space-evenly false
+              (nv-key :text "s")
+              (nv-spe-key :text "h/j/k/l"))
+            (label :class "nv-cs-desc" :xalign 0 :text "Mover foco"))
+          (box :class "nv-cs-row" :orientation "h" :spacing 8
+            (box :class "nv-cs-keys" :orientation "h" :spacing 4 :space-evenly false
+              (nv-spe-key :text "Ctrl")
+              (nv-plus)
+              (nv-spe-key :text "h/j/k/l"))
+            (label :class "nv-cs-desc" :xalign 0 :text "Cursor en inserción")))
+
+        (box :orientation "v" :space-evenly false :spacing 4
+          (label :class "nv-cs-section" :text "Archivo" :halign "start")
+          (box :class "nv-cs-row" :orientation "h" :spacing 8
+            (box :class "nv-cs-keys" :orientation "h" :spacing 4 :space-evenly false
+              (nv-spe-key :text "space")
+              (nv-plus)
+              (nv-key :text "w"))
+            (label :class "nv-cs-desc" :xalign 0 :text "Guardar"))
+          (box :class "nv-cs-row" :orientation "h" :spacing 8
+            (box :class "nv-cs-keys" :orientation "h" :spacing 4 :space-evenly false
+              (nv-spe-key :text "space")
+              (nv-plus)
+              (nv-key :text "q"))
+            (label :class "nv-cs-desc" :xalign 0 :text "Cerrar ventana"))
+          (box :class "nv-cs-row" :orientation "h" :spacing 8
+            (box :class "nv-cs-keys" :orientation "h" :spacing 4 :space-evenly false
+              (nv-spe-key :text "space")
+              (nv-plus)
+              (nv-key :text "Q"))
+            (label :class "nv-cs-desc" :xalign 0 :text "Salir de Neovim"))
+          (box :class "nv-cs-row" :orientation "h" :spacing 8
+            (box :class "nv-cs-keys" :orientation "h" :spacing 4 :space-evenly false
+              (nv-spe-key :text "space")
+              (nv-plus)
+              (nv-key :text "ad"))
+            (label :class "nv-cs-desc" :xalign 0 :text "Seleccionar todo")))
+
+        (box :orientation "v" :space-evenly false :spacing 4
+          (label :class "nv-cs-section" :text "Símbolos" :halign "start")
+          (box :class "nv-cs-row" :orientation "h" :spacing 8
+            (box :class "nv-cs-keys" :orientation "h" :spacing 4 :space-evenly false
+              (nv-spe-key :text "space")
+              (nv-plus)
+              (nv-key :text "a"))
+            (label :class "nv-cs-desc" :xalign 0 :text "Outline lateral"))
+          (box :class "nv-cs-row" :orientation "h" :spacing 8
+            (box :class "nv-cs-keys" :orientation "h" :spacing 4 :space-evenly false
+              (nv-key :text "{"))
+            (label :class "nv-cs-desc" :xalign 0 :text "Símbolo anterior"))
+          (box :class "nv-cs-row" :orientation "h" :spacing 8
+            (box :class "nv-cs-keys" :orientation "h" :spacing 4 :space-evenly false
+              (nv-key :text "}"))
+            (label :class "nv-cs-desc" :xalign 0 :text "Siguiente símbolo")))
+
+        (box :orientation "v" :space-evenly false :spacing 4
+          (label :class "nv-cs-section" :text "Pestañas" :halign "start")
+          (box :class "nv-cs-row" :orientation "h" :spacing 8
+            (box :class "nv-cs-keys" :orientation "h" :spacing 4 :space-evenly false
+              (nv-key :text "te"))
+            (label :class "nv-cs-desc" :xalign 0 :text "Nueva pestaña"))
+          (box :class "nv-cs-row" :orientation "h" :spacing 8
+            (box :class "nv-cs-keys" :orientation "h" :spacing 4 :space-evenly false
+              (nv-key :text "tw"))
+            (label :class "nv-cs-desc" :xalign 0 :text "Cerrar pestaña"))
+          (box :class "nv-cs-row" :orientation "h" :spacing 8
+            (box :class "nv-cs-keys" :orientation "h" :spacing 4 :space-evenly false
+              (nv-spe-key :text "Tab"))
+            (label :class "nv-cs-desc" :xalign 0 :text "Siguiente pestaña"))
+          (box :class "nv-cs-row" :orientation "h" :spacing 8
+            (box :class "nv-cs-keys" :orientation "h" :spacing 4 :space-evenly false
+              (nv-spe-key :text "Shift")
+              (nv-plus)
+              (nv-spe-key :text "Tab"))
+            (label :class "nv-cs-desc" :xalign 0 :text "Pestaña anterior"))))
+
+      ; ── Columna 2: Buffers + Ventanas + Misc ──────────
+      (box :class "nv-cs-col nv-cs-no-margin" :orientation "v" :space-evenly false :spacing 16 :hexpand false
+
+        (box :orientation "v" :space-evenly false :spacing 4
+          (label :class "nv-cs-section" :text "Buffers" :halign "start")
+          (box :class "nv-cs-row" :orientation "h" :spacing 8
+            (box :class "nv-cs-keys" :orientation "h" :spacing 4 :space-evenly false
+              (nv-spe-key :text "Shift")
+              (nv-plus)
+              (nv-key :text "L"))
+            (label :class "nv-cs-desc" :xalign 0 :text "Menú de buffers"))
+          (box :class "nv-cs-row" :orientation "h" :spacing 8
+            (box :class "nv-cs-keys" :orientation "h" :spacing 4 :space-evenly false
+              (nv-key :text "nb"))
+            (label :class "nv-cs-desc" :xalign 0 :text "Siguiente buffer"))
+          (box :class "nv-cs-row" :orientation "h" :spacing 8
+            (box :class "nv-cs-keys" :orientation "h" :spacing 4 :space-evenly false
+              (nv-key :text "nB"))
+            (label :class "nv-cs-desc" :xalign 0 :text "Buffer anterior"))
+          (box :class "nv-cs-row" :orientation "h" :spacing 8
+            (box :class "nv-cs-keys" :orientation "h" :spacing 4 :space-evenly false
+              (nv-spe-key :text "space")
+              (nv-plus)
+              (nv-key :text "bb"))
+            (label :class "nv-cs-desc" :xalign 0 :text "Último buffer"))
+          (box :class "nv-cs-row" :orientation "h" :spacing 8
+            (box :class "nv-cs-keys" :orientation "h" :spacing 4 :space-evenly false
+              (nv-spe-key :text "space")
+              (nv-plus)
+              (nv-key :text "bd"))
+            (label :class "nv-cs-desc" :xalign 0 :text "Cerrar buffer"))
+          (box :class "nv-cs-row" :orientation "h" :spacing 8
+            (box :class "nv-cs-keys" :orientation "h" :spacing 4 :space-evenly false
+              (nv-spe-key :text "space")
+              (nv-plus)
+              (nv-key :text "bo"))
+            (label :class "nv-cs-desc" :xalign 0 :text "Cerrar otros buffers")))
+
+        (box :orientation "v" :space-evenly false :spacing 4
+          (label :class "nv-cs-section" :text "Ventanas" :halign "start")
+          (box :class "nv-cs-row" :orientation "h" :spacing 8
+            (box :class "nv-cs-keys" :orientation "h" :spacing 4 :space-evenly false
+              (nv-key :text "ss"))
+            (label :class "nv-cs-desc" :xalign 0 :text "Split horizontal"))
+          (box :class "nv-cs-row" :orientation "h" :spacing 8
+            (box :class "nv-cs-keys" :orientation "h" :spacing 4 :space-evenly false
+              (nv-key :text "sv"))
+            (label :class "nv-cs-desc" :xalign 0 :text "Split vertical"))
+          (box :class "nv-cs-row" :orientation "h" :spacing 8
+            (box :class "nv-cs-keys" :orientation "h" :spacing 4 :space-evenly false
+              (nv-key :text "sh"))
+            (label :class "nv-cs-desc" :xalign 0 :text "Foco izquierda"))
+          (box :class "nv-cs-row" :orientation "h" :spacing 8
+            (box :class "nv-cs-keys" :orientation "h" :spacing 4 :space-evenly false
+              (nv-key :text "sj"))
+            (label :class "nv-cs-desc" :xalign 0 :text "Foco abajo"))
+          (box :class "nv-cs-row" :orientation "h" :spacing 8
+            (box :class "nv-cs-keys" :orientation "h" :spacing 4 :space-evenly false
+              (nv-key :text "sk"))
+            (label :class "nv-cs-desc" :xalign 0 :text "Foco arriba"))
+          (box :class "nv-cs-row" :orientation "h" :spacing 8
+            (box :class "nv-cs-keys" :orientation "h" :spacing 4 :space-evenly false
+              (nv-key :text "sl"))
+            (label :class "nv-cs-desc" :xalign 0 :text "Foco derecha"))
+          (box :class "nv-cs-row" :orientation "h" :spacing 8
+            (box :class "nv-cs-keys" :orientation "h" :spacing 4 :space-evenly false
+              (nv-spe-key :text "←/↑/→/↓"))
+            (label :class "nv-cs-desc" :xalign 0 :text "Resize ventana")))
+
+        (box :orientation "v" :space-evenly false :spacing 4
+          (label :class "nv-cs-section" :text "Autocompletado" :halign "start")
+          (box :class "nv-cs-row" :orientation "h" :spacing 8
+            (box :class "nv-cs-keys" :orientation "h" :spacing 4 :space-evenly false
+              (nv-spe-key :text "Ctrl")
+              (nv-plus)
+              (nv-key :text "n/p"))
+            ;(label :class "nv-cs-desc" :xalign 0 :text "Autocompletado sig/ant"))
+            (box :orientation "v" :space-evenly false
+              (label :class "nv-cs-desc" :xalign 0 :text "Autocompletado")
+              (label :class "nv-cs-desc" :xalign 0 :text "sig/ant")))
+
+          (box :class "nv-cs-row" :orientation "h" :spacing 8
+            (box :class "nv-cs-keys" :orientation "h" :spacing 4 :space-evenly false
+              (nv-key :text "x"))
+            ;(label :class "nv-cs-desc" :xalign 0 :text "Borrar sin clipboard"))))
+            (box :orientation "v" :space-evenly false
+              (label :class "nv-cs-desc" :xalign 0 :text "Borrar sin")
+              (label :class "nv-cs-desc" :xalign 0 :text "clipboard"))))
+
+        (box :orientation "v" :space-evenly false :spacing 4
+          (label :class "nv-cs-section" :text "Focus" :halign "start")
+          (box :class "nv-cs-row" :orientation "h" :spacing 8
+            (box :class "nv-cs-keys" :orientation "h" :spacing 4 :space-evenly false
+              (nv-spe-key :text "space")
+              (nv-plus)
+              (nv-key :text "uD"))
+            (label :class "nv-cs-desc" :xalign 0 :text "Resaltar bloque"))
+          (box :class "nv-cs-row" :orientation "h" :spacing 8
+            (box :class "nv-cs-keys" :orientation "h" :spacing 4 :space-evenly false
+              (nv-spe-key :text "space")
+              (nv-plus)
+              (nv-key :text "uz"))
+            (label :class "nv-cs-desc" :xalign 0 :text "Modo concentración"))))
+
+      ; ── Columna 3: Archivos + Git + Focus ────────
+      (box :class "nv-cs-col" :orientation "v" :space-evenly false :spacing 16 :hexpand false
+
+        (box :orientation "v" :space-evenly false :spacing 4
+          (label :class "nv-cs-section" :text "Archivos" :halign "start")
+          (box :class "nv-cs-row" :orientation "h" :spacing 8
+            (box :class "nv-cs-keys" :orientation "h" :spacing 4 :space-evenly false
+              (nv-spe-key :text "space")
+              (nv-plus)
+              (nv-spe-key :text "space"))
+            (label :class "nv-cs-desc" :xalign 0 :text "Buscar archivos"))
+          (box :class "nv-cs-row" :orientation "h" :spacing 8
+            (box :class "nv-cs-keys" :orientation "h" :spacing 4 :space-evenly false
+              (nv-spe-key :text "space")
+              (nv-plus)
+              (nv-key :text "fg"))
+            (label :class "nv-cs-desc" :xalign 0 :text "Buscar texto"))
+          (box :class "nv-cs-row" :orientation "h" :spacing 8
+            (box :class "nv-cs-keys" :orientation "h" :spacing 4 :space-evenly false
+              (nv-spe-key :text "space")
+              (nv-plus)
+              (nv-key :text "fr"))
+            (label :class "nv-cs-desc" :xalign 0 :text "Recientes"))
+          (box :class "nv-cs-row" :orientation "h" :spacing 8
+            (box :class "nv-cs-keys" :orientation "h" :spacing 4 :space-evenly false
+              (nv-spe-key :text "space")
+              (nv-plus)
+              (nv-key :text "fp"))
+            (label :class "nv-cs-desc" :xalign 0 :text "Proyectos"))
+          (box :class "nv-cs-row" :orientation "h" :spacing 8
+            (box :class "nv-cs-keys" :orientation "h" :spacing 4 :space-evenly false
+              (nv-spe-key :text "space")
+              (nv-plus)
+              (nv-key :text "fb"))
+            (label :class "nv-cs-desc" :xalign 0 :text "Buffers")))
+
+        (box :orientation "v" :space-evenly false :spacing 4
+          (label :class "nv-cs-section" :text "Git" :halign "start")
+          (box :class "nv-cs-row" :orientation "h" :spacing 8
+            (box :class "nv-cs-keys" :orientation "h" :spacing 4 :space-evenly false
+              (nv-spe-key :text "space")
+              (nv-plus)
+              (nv-key :text "gs"))
+            (label :class "nv-cs-desc" :xalign 0 :text "Git status"))
+          (box :class "nv-cs-row" :orientation "h" :spacing 8
+            (box :class "nv-cs-keys" :orientation "h" :spacing 4 :space-evenly false
+              (nv-spe-key :text "space")
+              (nv-plus)
+              (nv-key :text "gl"))
+            (label :class "nv-cs-desc" :xalign 0 :text "Git log"))
+          (box :class "nv-cs-row" :orientation "h" :spacing 8
+            (box :class "nv-cs-keys" :orientation "h" :spacing 4 :space-evenly false
+              (nv-spe-key :text "space")
+              (nv-plus)
+              (nv-key :text "gb"))
+            (label :class "nv-cs-desc" :xalign 0 :text "Branches"))
+          (box :class "nv-cs-row" :orientation "h" :spacing 8
+            (box :class "nv-cs-keys" :orientation "h" :spacing 4 :space-evenly false
+              (nv-spe-key :text "space")
+              (nv-plus)
+              (nv-key :text "gp"))
+            (label :class "nv-cs-desc" :xalign 0 :text "Preview hunk"))
+          (box :class "nv-cs-row" :orientation "h" :spacing 8
+            (box :class "nv-cs-keys" :orientation "h" :spacing 4 :space-evenly false
+              (nv-spe-key :text "space")
+              (nv-plus)
+              (nv-key :text "gD"))
+            (label :class "nv-cs-desc" :xalign 0 :text "Diff original"))
+          (box :class "nv-cs-row" :orientation "h" :spacing 8
+            (box :class "nv-cs-keys" :orientation "h" :spacing 4 :space-evenly false
+              (nv-spe-key :text "space")
+              (nv-plus)
+              (nv-key :text "gd"))
+            (label :class "nv-cs-desc" :xalign 0 :text "Diff hunks"))
+          (box :class "nv-cs-row" :orientation "h" :spacing 8
+            (box :class "nv-cs-keys" :orientation "h" :spacing 4 :space-evenly false
+              (nv-spe-key :text "space")
+              (nv-plus)
+              (nv-key :text "gI"))
+            (label :class "nv-cs-desc" :xalign 0 :text "GitHub Issues"))
+          (box :class "nv-cs-row" :orientation "h" :spacing 8
+            (box :class "nv-cs-keys" :orientation "h" :spacing 4 :space-evenly false
+              (nv-spe-key :text "space")
+              (nv-plus)
+              (nv-key :text "gP"))
+            (label :class "nv-cs-desc" :xalign 0 :text "Pull Requests"))) 
+
+        (box :orientation "v" :space-evenly false :spacing 4
+          (label :class "nv-cs-section" :text "Matchit" :halign "start")
+          (box :class "nv-cs-row" :orientation "h" :spacing 8
+            (box :class "nv-cs-keys" :orientation "h" :spacing 4 :space-evenly false
+              (nv-key :text "[%"))
+            (label :class "nv-cs-desc" :xalign 0 :text "Inicio del bloque"))
+          (box :class "nv-cs-row" :orientation "h" :spacing 8
+            (box :class "nv-cs-keys" :orientation "h" :spacing 4 :space-evenly false
+              (nv-key :text "]%"))
+            (label :class "nv-cs-desc" :xalign 0 :text "Final del bloque"))
+          (box :class "nv-cs-row" :orientation "h" :spacing 8
+            (box :class "nv-cs-keys" :orientation "h" :spacing 4 :space-evenly false
+              (nv-key :text "g%"))
+            ;(label :class "nv-cs-desc" :xalign 0 :text "Saltar bloque asociado"))))
+            (box :orientation "v" :space-evenly false
+              (label :class "nv-cs-desc" :xalign 0 :text "Saltar bloque")
+              (label :class "nv-cs-desc" :xalign 0 :text "asociado")))
+
+        (box :orientation "v" :space-evenly false :spacing 4
+          (label :class "nv-cs-section" :text "Terminales" :halign "start")
+          (box :class "nv-cs-row" :orientation "h" :spacing 8
+            (box :class "nv-cs-keys" :orientation "h" :spacing 4 :space-evenly false
+              (nv-spe-key :text "space")
+              (nv-plus)
+              (nv-key :text "/"))
+            (label :class "nv-cs-desc" :xalign 0 :text "Terminal temporal"))
+          (box :class "nv-cs-row" :orientation "h" :spacing 8
+            (box :class "nv-cs-keys" :orientation "h" :spacing 4 :space-evenly false
+              (nv-spe-key :text "space")
+              (nv-plus)
+              (nv-key :text "1/2/3"))
+            (label :class "nv-cs-desc" :xalign 0 :text "Terminal persistente")))))
+
+      ; ── Columna 4: LSP + Terminales + Debugging + Comentarios ──
+      (box :class "nv-cs-col" :orientation "v" :space-evenly false :spacing 16 :hexpand false
+
+        (box :orientation "v" :space-evenly false :spacing 4
+          (label :class "nv-cs-section" :text "LSP" :halign "start")
+          (box :class "nv-cs-row" :orientation "h" :spacing 8
+            (box :class "nv-cs-keys" :orientation "h" :spacing 4 :space-evenly false
+              (nv-spe-key :text "space")
+              (nv-plus)
+              (nv-key :text "cf"))
+            (label :class "nv-cs-desc" :xalign 0 :text "Definición"))
+          (box :class "nv-cs-row" :orientation "h" :spacing 8
+            (box :class "nv-cs-keys" :orientation "h" :spacing 4 :space-evenly false
+              (nv-spe-key :text "space")
+              (nv-plus)
+              (nv-key :text "cD"))
+            (label :class "nv-cs-desc" :xalign 0 :text "Declaración"))
+          (box :class "nv-cs-row" :orientation "h" :spacing 8
+            (box :class "nv-cs-keys" :orientation "h" :spacing 4 :space-evenly false
+              (nv-spe-key :text "space")
+              (nv-plus)
+              (nv-key :text "ci"))
+            (label :class "nv-cs-desc" :xalign 0 :text "Implementación"))
+          (box :class "nv-cs-row" :orientation "h" :spacing 8
+            (box :class "nv-cs-keys" :orientation "h" :spacing 4 :space-evenly false
+              (nv-spe-key :text "space")
+              (nv-plus)
+              (nv-key :text "cr"))
+            (label :class "nv-cs-desc" :xalign 0 :text "Referencias"))
+          (box :class "nv-cs-row" :orientation "h" :spacing 8
+            (box :class "nv-cs-keys" :orientation "h" :spacing 4 :space-evenly false
+              (nv-spe-key :text "space")
+              (nv-plus)
+              (nv-key :text "ca"))
+            (label :class "nv-cs-desc" :xalign 0 :text "Code actions"))
+          (box :class "nv-cs-row" :orientation "h" :spacing 8
+            (box :class "nv-cs-keys" :orientation "h" :spacing 4 :space-evenly false
+              (nv-key :text "K"))
+            (label :class "nv-cs-desc" :xalign 0 :text "Documentación rápida"))
+          (box :class "nv-cs-row" :orientation "h" :spacing 8
+            (box :class "nv-cs-keys" :orientation "h" :spacing 4 :space-evenly false
+              (nv-spe-key :text "space")
+              (nv-plus)
+              (nv-key :text "slh"))
+            (label :class "nv-cs-desc" :xalign 0 :text "Signature help"))
+          (box :class "nv-cs-row" :orientation "h" :spacing 8
+            (box :class "nv-cs-keys" :orientation "h" :spacing 4 :space-evenly false
+              (nv-spe-key :text "space")
+              (nv-plus)
+              (nv-key :text "rn"))
+            (label :class "nv-cs-desc" :xalign 0 :text "Renombrar"))) 
+
+        (box :orientation "v" :space-evenly false :spacing 4
+          (label :class "nv-cs-section" :text "Diagnosticos" :halign "start")
+          (box :class "nv-cs-row" :orientation "h" :spacing 8
+            (box :class "nv-cs-keys" :orientation "h" :spacing 4 :space-evenly false
+              (nv-spe-key :text "space")
+              (nv-plus)
+              (nv-key :text "sD"))
+            ;(label :class "nv-cs-desc" :xalign 0 :text "Saltar bloque asociado"))))
+            (box :orientation "v" :space-evenly false
+              (label :class "nv-cs-desc" :xalign 0 :text "Saltar bloque")
+              (label :class "nv-cs-desc" :xalign 0 :text "asociado"))))
+
+        (box :orientation "v" :space-evenly false :spacing 4
+          (label :class "nv-cs-section" :text "Debugging" :halign "start")
+          (box :class "nv-cs-row" :orientation "h" :spacing 8
+            (box :class "nv-cs-keys" :orientation "h" :spacing 4 :space-evenly false
+              (nv-spe-key :text "F5"))
+            (label :class "nv-cs-desc" :xalign 0 :text "Start / Continue"))
+          (box :class "nv-cs-row" :orientation "h" :spacing 8
+            (box :class "nv-cs-keys" :orientation "h" :spacing 4 :space-evenly false
+              (nv-spe-key :text "F10"))
+            (label :class "nv-cs-desc" :xalign 0 :text "Step over"))
+          (box :class "nv-cs-row" :orientation "h" :spacing 8
+            (box :class "nv-cs-keys" :orientation "h" :spacing 4 :space-evenly false
+              (nv-spe-key :text "F11"))
+            (label :class "nv-cs-desc" :xalign 0 :text "Step into"))
+          (box :class "nv-cs-row" :orientation "h" :spacing 8
+            (box :class "nv-cs-keys" :orientation "h" :spacing 4 :space-evenly false
+              (nv-spe-key :text "F12"))
+            (label :class "nv-cs-desc" :xalign 0 :text "Step out"))
+          (box :class "nv-cs-row" :orientation "h" :spacing 8
+            (box :class "nv-cs-keys" :orientation "h" :spacing 4 :space-evenly false
+              (nv-spe-key :text "space")
+              (nv-plus)
+              (nv-key :text "b"))
+            (label :class "nv-cs-desc" :xalign 0 :text "Breakpoint"))
+          (box :class "nv-cs-row" :orientation "h" :spacing 8
+            (box :class "nv-cs-keys" :orientation "h" :spacing 4 :space-evenly false
+              (nv-spe-key :text "space")
+              (nv-plus)
+              (nv-key :text "B"))
+            (label :class "nv-cs-desc" :xalign 0 :text "Breakpoint condicional")))
+
+        (box :orientation "v" :space-evenly false :spacing 4
+          (label :class "nv-cs-section" :text "Comentarios" :halign "start")
+          (box :class "nv-cs-row" :orientation "h" :spacing 8
+            (box :class "nv-cs-keys" :orientation "h" :spacing 4 :space-evenly false
+              (nv-key :text "gcc"))
+            (label :class "nv-cs-desc" :xalign 0 :text "Comentar línea"))
+          (box :class "nv-cs-row" :orientation "h" :spacing 8
+            (box :class "nv-cs-keys" :orientation "h" :spacing 4 :space-evenly false
+              (nv-key :text "gco"))
+            (label :class "nv-cs-desc" :xalign 0 :text "Comentario abajo"))
+          (box :class "nv-cs-row" :orientation "h" :spacing 8
+            (box :class "nv-cs-keys" :orientation "h" :spacing 4 :space-evenly false
+              (nv-key :text "gcO"))
+            (label :class "nv-cs-desc" :xalign 0 :text "Comentario arriba")))))))
+
+; ── Ventana ─────────────────────────────────────────────
+(defwindow nvim-cheatsheet-popup
+  :monitor 0
+  :geometry (geometry
+    :x "50%"
+    :y "50%"
+    :width "1200px"
+    :height "600px"
+    :anchor "center")
+  :stacking "overlay"
+  (nvim-cheatsheet))
