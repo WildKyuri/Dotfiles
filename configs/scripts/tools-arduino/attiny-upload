@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+set -e
+
+FQBN="diy_attiny:avr:attiny85_diy:clock=8MHz,boot=none"
+PROGRAMMER="arduinoasisp"
+PORT="/dev/ttyACM1"
+
+echo "==> Compilando ATtiny85..."
+arduino-cli compile \
+  --fqbn "$FQBN" \
+  .
+
+echo
+echo "==> Programando ATtiny85 usando Arduino as ISP..."
+arduino-cli upload \
+  --fqbn "$FQBN" \
+  --port "$PORT" \
+  --programmer "$PROGRAMMER" \
+  .
+
+echo
+echo "==> Listo."

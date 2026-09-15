@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+set -e
+
+FQBN="arduino:avr:uno"
+PORT="/dev/ttyACM1"
+
+echo "==> Compilando Arduino Uno..."
+arduino-cli compile \
+  --fqbn "$FQBN" \
+  .
+
+echo
+echo "==> Subiendo al Arduino Uno..."
+arduino-cli upload \
+  --fqbn "$FQBN" \
+  --port "$PORT" \
+  .
+
+echo
+echo "==> Listo."

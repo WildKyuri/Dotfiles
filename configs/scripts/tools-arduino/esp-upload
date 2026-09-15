@@ -1,0 +1,79 @@
+#!/usr/bin/env bash
+
+set -e
+
+BOARD="$1"
+
+case "$BOARD" in
+esp32)
+  FQBN="esp32:esp32:esp32"
+  NAME="ESP32"
+
+  if [[ -e /dev/ttyUSB1 ]]; then
+    echo "[!] Dos dispositivos USB-UART detectados."
+    echo "    Se asume:"
+    echo "    /dev/ttyUSB0 = ESP32"
+    echo "    /dev/ttyUSB1 = ESP8266"
+    echo
+  fi
+
+  PORT="/dev/ttyUSB0"
+  ;;
+
+8266 | esp8266)
+  FQBN="esp8266:esp8266:nodemcuv2"
+  NAME="ESP8266"
+
+  if [[ -e /dev/ttyUSB1 ]]; then
+    echo "[!] Dos dispositivos USB-UART detectados."
+    echo "    Se asume:"
+    echo "    /dev/ttyUSB0 = ESP32"
+    echo "    /dev/ttyUSB1 = ESP8266"
+    echo
+
+    PORT="/dev/ttyUSB1"
+  else
+    PORT="/dev/ttyUSB0"
+  fi
+  ;;
+
+c3 | esp32c3)
+  FQBN="esp32:esp32:esp32c3"
+  PORT="/dev/ttyACM0"
+  NAME="ESP32-C3"
+  ;;
+
+*)
+  echo "Uso:"
+  echo "  esp esp32"
+  echo "  esp 8266"
+  echo "  esp c3"
+  exit 1
+  ;;
+esac
+
+if [[ ! -e "$PORT" ]]; then
+  echo "[ERROR] No existe $PORT"
+  echo "        ¿Está conectado el $NAME?"
+  exit 1
+fi
+
+echo "==> Placa:   $NAME"
+echo "==> Puerto:  $PORT"
+echo "==> FQBN:    $FQBN"
+echo
+
+echo "==> Compilando..."
+arduino-cli compile \
+  --fqbn "$FQBN" \
+  .
+
+echo
+echo "==> Subiendo..."
+arduino-cli upload \
+  --fqbn "$FQBN" \
+  --port "$PORT" \
+  .
+
+echo
+echo "==> Listo."
