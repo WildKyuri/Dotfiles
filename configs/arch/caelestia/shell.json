@@ -1,0 +1,30 @@
+{
+  "appearance": {
+    "transparency": {
+      "enabled": true
+    }
+  },
+  "general": {
+    "idle": {
+      "timeouts": [
+        {
+          "idleAction": "lock",
+          "inhibitWhenAudio": false,
+          "inhibitWhenCharging": false,
+          "respectInhibitors": true,
+          "timeout": 600
+        },
+        {
+          "idleAction": "dpms off",
+          "returnAction": "dpms on",
+          "timeout": 900
+        }
+      ]
+    }
+  },
+  "utilities": {
+    "toasts": {
+      "kbLayoutChanged": false
+    }
+  }
+}
