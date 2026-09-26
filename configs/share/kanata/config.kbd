@@ -1,11 +1,18 @@
 (defsrc
-  caps 
+  caps j k
 )
-  
+
 (defalias
-  escctrl (tap-hold 100 120 esc lctrl)
+  escscroll (tap-hold-press 100 120 esc (layer-while-held scroll))
+
+  scr-down (mwheel-down 30 60)
+  scr-up   (mwheel-up   30 60)
 )
 
 (deflayer base
-  @escctrl
+  @escscroll _ _
+)
+
+(deflayer scroll
+  _ @scr-down @scr-up
 )
