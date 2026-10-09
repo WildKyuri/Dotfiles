@@ -236,7 +236,7 @@ for i = 1, 10 do
 end
 
 -- Workspaces 11-15 → DP-1
-for i = 11, 15 do
+for i = 11, 17 do
 	hl.workspace_rule({
 		workspace = tostring(i),
 		monitor = "DP-1",
@@ -244,7 +244,7 @@ for i = 11, 15 do
 end
 
 -- Workspaces 16-20 → HDMI-A-1
-for i = 16, 20 do
+for i = 18, 20 do
 	hl.workspace_rule({
 		workspace = tostring(i),
 		monitor = "HDMI-A-1",
@@ -343,3 +343,6 @@ hl.bind("ALT + RIGHT", hl.dsp.window.move({ x = 40, y = 0, relative = true }), r
 hl.bind("ALT + UP", hl.dsp.window.move({ x = 0, y = -40, relative = true }), repeating)
 
 hl.bind("ALT + DOWN", hl.dsp.window.move({ x = 0, y = 40, relative = true }), repeating)
+
+-- Quickshell icon theme
+hl.env("QS_ICON_THEME", "Papirus-Dark")
