@@ -37,10 +37,12 @@ end
 for _, server_name in ipairs(servers) do
   local server_config = {
     on_attach = on_attach,
-    capabilities = blink_cmp.get_lsp_capabilities(),
   }
 
-  -- Añadir configuraciones especiales si existen
+  if server_name ~= "arduino_language_server" then
+    server_config.capabilities = blink_cmp.get_lsp_capabilities()
+  end
+
   if servers_config.special_configs[server_name] then
     server_config = vim.tbl_deep_extend("force", server_config, servers_config.special_configs[server_name])
   end

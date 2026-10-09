@@ -19,7 +19,7 @@ return {
   },
 
   null_servers = {
-    "stylua",
+    -- "stylua",
     "eslint",
     "prettierd",
     "black",
@@ -30,11 +30,11 @@ return {
 
   -- Mapeo de LSP a DAP (para debugging.lua)
   lsp_to_dap = {
-    python3 = "debugpy",  -- Python
+    python3 = "debugpy", -- Python
     csharp = "netcoredbg",
-    cpp = "codelldb",     -- C/C++
+    cpp = "codelldb", -- C/C++
     c = "cpp",
-    "js-debug-adapter",   -- JavaScript/TypeScript
+    "js-debug-adapter", -- JavaScript/TypeScript
     "java-debug-adapter", -- Java
   },
 
@@ -71,8 +71,12 @@ return {
         "/usr/bin/arduino-cli",
         "-cli-config",
         vim.fn.expand("~/.arduino15/arduino-cli.yaml"),
-        "-fqbn",
-        "arduino:avr:uno",
+        -- "-fqbn",
+        -- "arduino:avr:uno",
+      },
+
+      flags = {
+        debounce_text_changes = 0,
       },
     },
   },

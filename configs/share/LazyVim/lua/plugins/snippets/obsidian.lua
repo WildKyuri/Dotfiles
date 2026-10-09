@@ -76,10 +76,9 @@ ls.add_snippets("markdown", {
     t({ "", "```" }),
   }),
   s("pumlInclude", {
-    t("!include /home/kyuri/All-in/obsidian/_assets/aurora.puml"),
     t({
       "",
-      "!include https://raw.githubusercontent.com/WildKyuri/Dotfiles/refs/heads/main/configs/plantUML/aurora.puml",
+      "!include https://raw.githubusercontent.com/WildKyuri/PlantUML-Config/refs/heads/master/aurora.puml",
     }),
   }),
 })

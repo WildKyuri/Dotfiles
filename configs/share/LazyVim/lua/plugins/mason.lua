@@ -12,22 +12,41 @@ return {
   },
   {
     "mason-org/mason-lspconfig.nvim",
-    opts = {
-      ensure_installed = servers_config.lsp_servers,
-    },
     dependencies = {
-      {
-        "mason-org/mason.nvim",
-        opts = {
-          registries = {
-            "github:mason-org/mason-registry",
-            "github:Crashdummyy/mason-registry",
-          },
-        },
-      },
+      "mason-org/mason.nvim",
       "neovim/nvim-lspconfig",
     },
+    config = function()
+      require("mason").setup({
+        registries = {
+          "github:mason-org/mason-registry",
+          "github:Crashdummyy/mason-registry",
+        },
+      })
+
+      require("mason-lspconfig").setup({
+        ensure_installed = servers_config.lsp_servers,
+      })
+    end,
   },
+  -- {
+  --   "mason-org/mason-lspconfig.nvim",
+  --   opts = {
+  --     ensure_installed = servers_config.lsp_servers,
+  --   },
+  --   dependencies = {
+  --     {
+  --       "mason-org/mason.nvim",
+  --       opts = {
+  --         registries = {
+  --           "github:mason-org/mason-registry",
+  --           "github:Crashdummyy/mason-registry",
+  --         },
+  --       },
+  --     },
+  --     "neovim/nvim-lspconfig",
+  --   },
+  -- },
   {
     "jay-babu/mason-null-ls.nvim",
     after = { "mason.nvim", "none-ls.nvim" },

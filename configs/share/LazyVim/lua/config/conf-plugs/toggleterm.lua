@@ -1,7 +1,10 @@
 require("toggleterm").setup({
+  shell = vim.fn.exepath("fish"),
+
   size = 20,
   open_mapping = [[<leader>/]],
   start_in_insert = true,
+
   float_opts = {
     border = "rounded",
     width = 80,
@@ -10,6 +13,7 @@ require("toggleterm").setup({
     row = math.max(1, vim.o.lines * 0.05),
     col = 100,
   },
+
   direction = "float",
 })
 
