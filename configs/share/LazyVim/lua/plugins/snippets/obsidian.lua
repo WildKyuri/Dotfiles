@@ -81,4 +81,17 @@ ls.add_snippets("markdown", {
       "!include https://raw.githubusercontent.com/WildKyuri/PlantUML-Config/refs/heads/master/aurora.puml",
     }),
   }),
+  -- Cornell Notes Pro
+  s("ctitle", {
+    t("> [!title] "),
+    i(1, "Título"),
+  }),
+  s("ccue", {
+    t("> [!cue] "),
+    i(1, "Pregunta o concepto"),
+  }),
+  s("csummary", {
+    t("> [!summary] "),
+    i(1, "Resumen"),
+  }),
 })

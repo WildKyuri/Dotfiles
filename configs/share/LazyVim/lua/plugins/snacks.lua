@@ -2,6 +2,13 @@ return {
   {
     "folke/snacks.nvim",
     opts = {
+      terminal = {
+        win = {
+          keys = {
+            nav_l = false, -- Liberar Ctrl + L para Fish
+          },
+        },
+      },
       image = {
         formats = {
           "png",
